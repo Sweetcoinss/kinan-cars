@@ -1,0 +1,56 @@
+/* ar.css — shared Arabic / RTL styles for detail pages */
+@import url('_fonts/cairo.css');
+
+html.ar { direction: rtl; }
+
+html.ar body,
+html.ar .car-year,
+html.ar .price-curr,
+html.ar .svc-desc,
+html.ar .cmd-step-desc,
+html.ar .occasion-badge span,
+html.ar .equip-item,
+html.ar .cmd-cta-note { font-family: 'Cairo', sans-serif; font-weight: 400; }
+
+html.ar .car-name,
+html.ar .fg-title,
+html.ar .f-logo { font-family: 'Cairo', sans-serif; font-weight: 700; letter-spacing: 0; }
+
+html.ar .car-brand-tag,
+html.ar .nav-back,
+html.ar .breadcrumb,
+html.ar .spec-key,
+html.ar .specs-title,
+html.ar .specs-section,
+html.ar .price-label,
+html.ar .fg-label,
+html.ar .f-tag,
+html.ar .f-copy,
+html.ar .spec-val,
+html.ar .btn-primary,
+html.ar .btn-outline,
+html.ar .cmd-badge,
+html.ar #langBtn { font-family: 'Cairo', sans-serif; font-weight: 600; letter-spacing: 0; }
+
+/* Keep prices & numbers LTR */
+html.ar .price-val,
+html.ar .spec-val { direction: ltr; unicode-bidi: embed; text-align: left; }
+html.ar .spec-row { flex-direction: row-reverse; }
+html.ar .spec-key { text-align: right; }
+
+/* Flip back-arrow for RTL */
+html.ar .nav-back svg { transform: scaleX(-1); }
+
+/* Lang toggle button */
+#langBtn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: rgba(255,255,255,.6); background: transparent;
+  border: 1px solid rgba(255,255,255,.18);
+  padding: .3rem .7rem; cursor: pointer;
+  transition: color .38s, border-color .38s;
+  margin-left: .8rem; flex-shrink: 0; line-height: 1.4;
+}
+#langBtn:hover { color: #C9A84C; border-color: #C9A84C; }
+html.ar #langBtn { margin-left: 0; margin-right: .8rem; letter-spacing: 0; }

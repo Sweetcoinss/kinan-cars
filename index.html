@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bounechada Auto — Showroom Automobile | Chéraga, Alger</title>
+  <meta name="description" content="Bounechada Auto — showroom automobile à Chéraga, Alger. Large gamme de véhicules neufs : Bestune, GAC, Geely, Hyundai, MG, Mercedes-Benz, Kaiyi, Livan, Porsche. Dédouanement, importation directe et carte grise immédiate. Ouvert du samedi au jeudi de 9h à 18h.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDealer",
+    "name": "Bounechada Auto",
+    "description": "Showroom automobile à Chéraga, Alger. Vente de véhicules neufs : Bestune, GAC, Geely, Hyundai, MG, Mercedes-Benz, Kaiyi, Livan, Porsche. Dédouanement, importation directe, carte grise immédiate.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Chéraga",
+      "addressLocality": "Alger",
+      "addressRegion": "Alger",
+      "addressCountry": "DZ"
+    },
+    "telephone": "+213770557221",
+    "openingHours": [
+      "Sa 09:00-18:00",
+      "Su 09:00-18:00",
+      "Mo 09:00-18:00",
+      "Tu 09:00-18:00",
+      "We 09:00-18:00",
+      "Th 09:00-18:00"
+    ],
+    "priceRange": "DA",
+    "brand": [
+      "Bestune", "GAC", "Geely", "Hyundai", "MG", "Mercedes-Benz", "Kaiyi", "Livan", "Porsche"
+    ]
+  }
+  </script>
+  <link href="_fonts/fonts.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --noir:       #0A0A0A;
+      --blanc:      #FFFFFF;
+      --rouge:      #CC0000;
+      --rouge-vif:  #E60000;
+      --or:         #C9A84C;
+      --or-clair:   #E8C978;
+      --gris-fonce: #111111;
+      --gris-card:  #1C1C1C;
+      --gris-sec:   #F4F4F4;
+      --muted:      #888888;
+
+      --font-d: 'Bebas Neue', sans-serif;
+      --font-c: 'Barlow Condensed', sans-serif;
+      --font-b: 'Outfit', sans-serif;
+
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --dur:  0.38s;
+    }
+
+    html { scroll-behavior: smooth; cursor: none; }
+    body { font-family: var(--font-b); background: var(--blanc); color: var(--noir); overflow-x: hidden; }
+
+    /* ─── Custom Cursor ─── */
+    #c {
+      position: fixed; width: 8px; height: 8px;
+      background: var(--rouge); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      top: 0; left: 0; will-change: transform;
+      transition: background .2s;
+    }
+    #cr {
+      position: fixed; width: 34px; height: 34px;
+      border: 1.5px solid var(--or); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      top: 0; left: 0; will-change: transform;
+      transition: width .3s var(--ease), height .3s var(--ease), border-color .3s;
+    }
+    #cr.hov { width: 54px; height: 54px; border-color: var(--rouge); }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+      transition: background var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+    nav.s {
+      background: rgba(10,10,10,.95);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 1px 0 rgba(201,168,76,.12);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 6px;
+      text-decoration: none;
+    }
+    .nav-logo-icon { height: 40px; width: auto; display: block; }
+    .nav-logo-text { height: 26px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-family: var(--font-c); font-size: .75rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.7); text-decoration: none;
+      transition: color var(--dur);
+    }
+    .nav-links a:hover { color: var(--or); }
+    .nav-cta {
+      font-family: var(--font-c); font-size: .72rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blanc); background: var(--rouge);
+      padding: .5rem 1.3rem; text-decoration: none;
+      transition: background var(--dur);
+    }
+    .nav-cta:hover { background: var(--rouge-vif); }
+    @media (max-width:900px) { .nav-links { display: none; } }
+
+    /* ─── Hero ─── */
+    .hero {
+      height: 100vh; min-height: 620px;
+      background: var(--noir);
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-start;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      padding: calc(70px + 5vh) 5% 5rem; width: 100%;
+      max-width: 680px;
+    }
+    .hero-label {
+      font-family: var(--font-c); font-size: .68rem; font-weight: 600;
+      letter-spacing: .26em; text-transform: uppercase; color: var(--or);
+      display: flex; align-items: center; gap: .9rem; margin-bottom: 1.4rem;
+    }
+    .hero-label::before {
+      content: ''; display: inline-block;
+      width: 36px; height: 1px; background: var(--or);
+    }
+    .hero h1 {
+      font-family: var(--font-d);
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 400; color: var(--blanc);
+      line-height: 0.95; margin-bottom: 1.4rem;
+      letter-spacing: .04em;
+    }
+    .hero h1 .accent { color: var(--or); font-style: normal; }
+    .hero-sub {
+      font-size: .98rem; color: rgba(255,255,255,.5);
+      line-height: 1.75; margin-bottom: 2.4rem; max-width: 430px;
+    }
+    .hero-btns { display: flex; gap: .9rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      font-family: var(--font-c); font-size: .77rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blanc); background: var(--rouge);
+      padding: .85rem 2rem; text-decoration: none;
+      display: inline-block;
+      transition: background var(--dur), transform var(--dur);
+    }
+    .btn-primary:hover { background: var(--rouge-vif); transform: translateY(-2px); }
+    .btn-outline {
+      font-family: var(--font-c); font-size: .77rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blanc); background: transparent;
+      padding: .85rem 2rem; text-decoration: none;
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.22);
+      transition: border-color var(--dur), color var(--dur), transform var(--dur);
+    }
+    .btn-outline:hover { border-color: var(--or); color: var(--or); transform: translateY(-2px); }
+
+    /* ── Video fullscreen background ── */
+    .hero-visual {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .vid-wrap {
+      position: absolute; inset: 0; overflow: hidden;
+    }
+    .vid-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .vid-overlay {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(105deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.52) 50%, rgba(0,0,0,.25) 100%),
+        linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 35%);
+    }
+    .vid-badge {
+      position: absolute; bottom: 5.5rem; right: 5%;
+      font-family: var(--font-c); font-size: .58rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase; color: var(--or);
+      border: 1px solid rgba(201,168,76,.3);
+      padding: .3rem .7rem; backdrop-filter: blur(6px);
+      background: rgba(10,10,10,.4);
+      z-index: 3;
+    }
+    .vid-counter {
+      position: absolute; bottom: 3.5rem; right: 5%; z-index: 3;
+      font-family: var(--font-c); font-size: .58rem; font-weight: 600;
+      letter-spacing: .12em; color: rgba(255,255,255,.5);
+    }
+    .vid-dots {
+      position: absolute; bottom: 2rem; right: 5%; z-index: 3;
+      display: flex; gap: .4rem; align-items: center;
+    }
+    .vid-dot {
+      width: 22px; height: 2px; background: rgba(255,255,255,.22);
+      transition: background .3s, width .3s; cursor: none;
+    }
+    .vid-dot.on { background: var(--rouge); width: 32px; }
+
+
+    .hero-stats {
+      display: flex; gap: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    .hstat { text-align: center; }
+    .hstat-n {
+      font-family: var(--font-d); font-size: 2.2rem; font-weight: 400;
+      color: var(--blanc); display: block; letter-spacing: .05em;
+    }
+    .hstat-l {
+      font-family: var(--font-c); font-size: .58rem; font-weight: 500;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+    }
+
+    .scroll-ind {
+      position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%); z-index: 2;
+      display: flex; align-items: center; gap: .7rem;
+    }
+    .scroll-bar {
+      width: 38px; height: 1px;
+      background: rgba(255,255,255,.15); position: relative; overflow: hidden;
+    }
+    .scroll-bar::after {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: var(--or);
+      animation: scrollSlide 2.2s ease-in-out infinite;
+    }
+    @keyframes scrollSlide { 0% { left: -100%; } 100% { left: 100%; } }
+    .scroll-txt {
+      font-family: var(--font-c); font-size: .58rem;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: rgba(255,255,255,.28);
+    }
+
+    @media (max-width:768px) {
+      .hero-stats { gap: 1.5rem; }
+      .hero-inner { max-width: 100%; }
+    }
+
+    /* ─── Section Commons ─── */
+    .slabel {
+      font-family: var(--font-c); font-size: .63rem; font-weight: 600;
+      letter-spacing: .3em; text-transform: uppercase; color: var(--rouge);
+      display: flex; align-items: center; gap: .9rem; margin-bottom: .9rem;
+    }
+    .slabel::before {
+      content: ''; display: inline-block;
+      width: 28px; height: 1px; background: currentColor; flex-shrink: 0;
+    }
+    .slabel-or { color: var(--or); }
+    .stitle {
+      font-family: var(--font-d);
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 400; line-height: 1; letter-spacing: .05em;
+    }
+    .ssub {
+      font-size: .92rem; color: var(--muted); max-width: 480px; line-height: 1.7;
+    }
+    .rline { width: 38px; height: 3px; background: var(--rouge); margin: .9rem 0 1.8rem; }
+
+    /* ─── Stock ─── */
+    #stock { padding: 7rem 5%; background: var(--gris-sec); }
+    .stock-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem;
+    }
+    .filter-tabs { display: flex; border: 1px solid rgba(0,0,0,.1); overflow-x: auto; overflow-y: hidden; }
+    @media (max-width:768px) { .filter-tabs { max-width:100%; } .ftab { white-space:nowrap; } }
+    .ftab {
+      font-family: var(--font-c); font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .6rem 1.2rem; background: var(--blanc); color: var(--noir);
+      border: none; border-right: 1px solid rgba(0,0,0,.1);
+      transition: background var(--dur), color var(--dur);
+    }
+    .ftab:last-child { border-right: none; }
+    .ftab.active, .ftab:hover { background: var(--rouge); color: var(--blanc); }
+
+    .stock-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
+    }
+    @media (max-width:1024px) { .stock-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:580px)  { .stock-grid { grid-template-columns: 1fr; } }
+
+    .ccard {
+      background: var(--blanc); overflow: hidden; will-change: transform;
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+    .ccard:hover { transform: translateY(-7px); box-shadow: 0 28px 72px rgba(204,0,0,.13); }
+
+    .ccard-img { height: 200px; position: relative; overflow: hidden; background: #111; }
+    .ccard-photo {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .65s var(--ease);
+    }
+    .ccard:hover .ccard-photo { transform: scale(1.04); }
+
+    .cbrand {
+      position: absolute; top: .7rem; left: .7rem;
+      font-family: var(--font-c); font-size: .58rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+      background: rgba(0,0,0,.52); backdrop-filter: blur(4px);
+      padding: .28rem .6rem; border: 1px solid rgba(255,255,255,.08);
+    }
+    .cnew {
+      position: absolute; top: .7rem; right: .7rem;
+      font-family: var(--font-c); font-size: .52rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--blanc); background: var(--rouge);
+      padding: .22rem .5rem;
+    }
+
+    .ccard-info { padding: 1.2rem 1.2rem 1.5rem; }
+    .cmodel {
+      font-family: var(--font-d); font-size: 1.5rem; font-weight: 400;
+      color: var(--noir); margin-bottom: .18rem; letter-spacing: .05em;
+    }
+    .cdetails {
+      font-family: var(--font-c); font-size: .68rem; font-weight: 500;
+      letter-spacing: .09em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+    }
+    .cprice-row { display: flex; justify-content: space-between; align-items: center; }
+    .cprice {
+      font-family: var(--font-d); font-size: 1.4rem; font-weight: 400;
+      color: var(--rouge); letter-spacing: .04em;
+    }
+    .cprice::after { content: ' DA'; font-size: .65em; letter-spacing: .06em; }
+    .ccurr {
+      font-family: var(--font-c); font-size: .6rem; font-weight: 500;
+      color: var(--muted); margin-top: .1rem;
+    }
+    .ccta {
+      font-family: var(--font-c); font-size: .64rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--rouge); background: none;
+      border: 1px solid var(--rouge); padding: .4rem .9rem;
+      transition: background var(--dur), color var(--dur);
+      text-decoration: none; display: inline-block; cursor: pointer;
+    }
+    .ccta:hover { background: var(--rouge); color: var(--blanc); }
+
+    /* ─── Marques ─── */
+    #marques { padding: 5.5rem 0; background: var(--noir); }
+    #marques .marques-header { text-align:center; padding: 0 5% 3rem; }
+    .logo-ticker-wrap {
+      overflow: hidden;
+      padding: 2.2rem 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      -webkit-mask-image: linear-gradient(to right,transparent 0%,#000 10%,#000 90%,transparent 100%);
+      mask-image: linear-gradient(to right,transparent 0%,#000 10%,#000 90%,transparent 100%);
+    }
+    .logo-track {
+      display: flex; align-items: center; gap: 5.5rem;
+      width: max-content; will-change: transform;
+      animation: logo-roll 34s linear infinite;
+    }
+    .logo-track:hover { animation-play-state: paused; }
+    .logo-slide { display: flex; align-items: center; flex-shrink: 0; }
+    .logo-slide img {
+      height: 54px; width: auto; display: block;
+      filter: brightness(0) invert(1);
+      opacity: .5;
+      transition: opacity .3s, transform .3s;
+    }
+    .logo-slide:hover img { opacity: 1; transform: scale(1.1); }
+    @keyframes logo-roll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── Services ─── */
+    #services { padding: 7rem 5%; background: var(--blanc); }
+    .svc-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4rem;
+      margin-top: 3rem;
+    }
+    @media (max-width:900px) { .svc-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:480px) { .svc-grid { grid-template-columns: 1fr; } }
+
+    .svc-card {
+      border: 1px solid rgba(0,0,0,.09); padding: 2rem 1.5rem;
+      transition: border-color var(--dur), transform var(--dur), box-shadow var(--dur);
+    }
+    .svc-card:hover {
+      border-color: var(--rouge); transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(204,0,0,.08);
+    }
+    .svc-icon { width: 44px; height: 44px; color: var(--rouge); margin-bottom: 1.2rem; }
+    .svc-title {
+      font-family: var(--font-d); font-size: 1.4rem; font-weight: 400;
+      margin-bottom: .45rem; letter-spacing: .05em;
+    }
+    .svc-desc { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+    .svc-soon-badge {
+      position: absolute; top: .8rem; right: .8rem;
+      font-family: var(--font-c); font-size: .52rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--or); border: 1px solid rgba(201,168,76,.35);
+      padding: .22rem .6rem; background: rgba(201,168,76,.08);
+    }
+
+    /* ─── Localisation ─── */
+    #localisation { padding: 7rem 5%; background: var(--gris-fonce); position: relative; overflow: hidden; }
+    .loc-video-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      z-index: 0; pointer-events: none;
+    }
+    #localisation::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(0,0,0,.68);
+      z-index: 1;
+    }
+    .loc-content { position: relative; z-index: 2; }
+    .loc-grid {
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 4rem; margin-top: 3rem; align-items: start;
+    }
+    @media (max-width:768px) { .loc-grid { grid-template-columns: 1fr; } }
+
+    .loc-item { display: flex; gap: 1rem; margin-bottom: 2rem; align-items: flex-start; }
+    .loc-icon { width: 20px; height: 20px; color: var(--or); flex-shrink: 0; margin-top: .1rem; }
+    .loc-ititle {
+      font-family: var(--font-c); font-size: .6rem; font-weight: 600;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: .28rem;
+    }
+    .loc-val { font-size: .95rem; color: var(--blanc); line-height: 1.55; }
+
+    .map-wrap { height: 380px; overflow: hidden; border: 1px solid rgba(201,168,76,.14); }
+    .map-wrap iframe {
+      width: 100%; height: 100%; border: none;
+      filter: grayscale(.25) contrast(1.08);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--noir); padding: 3rem 5%;
+      border-top: 1px solid rgba(204,0,0,.18);
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .f-logo {
+      display: flex; align-items: center; gap: 6px;
+      width: fit-content;
+    }
+    .f-logo-icon { height: 34px; width: auto; display: block; }
+    .f-logo-text { height: 22px; width: auto; display: block; }
+    .f-tag {
+      font-family: var(--font-c); font-size: .6rem;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--muted); margin-top: .2rem;
+    }
+    .f-brands {
+      font-family: var(--font-c); font-size: .62rem;
+      letter-spacing: .15em; text-transform: uppercase; color: var(--or);
+    }
+    .f-copy {
+      font-family: var(--font-c); font-size: .6rem;
+      letter-spacing: .08em; color: var(--muted);
+    }
+    .f-social { display:flex; gap:10px; align-items:center; }
+    .f-social a { display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.45); transition:all .2s; text-decoration:none; cursor:pointer; -webkit-tap-highlight-color:rgba(201,168,76,.25); }
+    .f-social a:hover { background:rgba(204,0,0,.18); border-color:var(--rouge); color:#fff; }
+    .f-social svg { width:20px; height:20px; fill:currentColor; pointer-events:none; }
+
+    /* ─── Reveal Animations ─── */
+    .rv {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .rv.vis { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+    .d5 { transition-delay: .5s; }
+
+    /* ─── Sur Commande ─── */
+    #commande{background:var(--gris-fonce);padding:5rem 5%;}
+    .cmd-header{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-bottom:3.5rem;}
+    @media(max-width:768px){.cmd-header{grid-template-columns:1fr;gap:1.5rem;}}
+    .cmd-origins{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+    @media(max-width:480px){.cmd-origins{grid-template-columns:1fr;}}
+    .cmd-origin{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:1.2rem 1.4rem;}
+    .cmd-origin-flag{font-family:var(--font-c);font-size:.58rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--or);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;}
+    .cmd-origin-flag::before{content:'';display:inline-block;width:18px;height:1px;background:var(--or);}
+    .cmd-origin-title{font-family:var(--font-d);font-size:1.4rem;color:var(--blanc);letter-spacing:.06em;margin-bottom:.7rem;}
+    .cmd-brands{font-family:var(--font-c);font-size:.72rem;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.04em;line-height:1.9;}
+    .cmd-steps{display:flex;flex-direction:column;gap:.9rem;}
+    .cmd-step{display:flex;align-items:flex-start;gap:1rem;}
+    .cmd-step-num{font-family:var(--font-d);font-size:2.2rem;color:var(--rouge);line-height:1;min-width:2rem;}
+    .cmd-step-title{font-family:var(--font-c);font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blanc);margin-bottom:.2rem;}
+    .cmd-step-desc{font-family:var(--font-b);font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.6;}
+    .cmd-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-bottom:3rem;}
+    @media(max-width:768px){.cmd-gallery{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:480px){.cmd-gallery{grid-template-columns:1fr;}}
+    .cmd-car{position:relative;overflow:hidden;aspect-ratio:4/3;background:#0a0a0a;}
+    .cmd-car img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s var(--ease);filter:brightness(.82);}
+    .cmd-car:hover img{transform:scale(1.05);filter:brightness(.95);}
+    .cmd-car-badge{position:absolute;top:.7rem;left:.7rem;font-family:var(--font-c);font-size:.55rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:.22rem .6rem;}
+    .cmd-car-badge.chine{background:var(--rouge);color:var(--blanc);}
+    .cmd-car-badge.europe{background:var(--or);color:var(--noir);}
+    .cmd-car-name{position:absolute;bottom:0;left:0;right:0;padding:.7rem 1rem;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 100%);font-family:var(--font-c);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);}
+    .cmd-cta{text-align:center;padding-top:1rem;}
+    .cmd-cta-note{font-family:var(--font-c);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:1rem;}
+    .cmd-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);margin-bottom:3rem;}
+    @media(max-width:600px){.cmd-benefits{grid-template-columns:1fr;}}
+    .cmd-benefit{background:var(--gris-fonce);padding:1.4rem;text-align:center;}
+    .cmd-benefit-val{font-family:var(--font-d);font-size:2rem;color:var(--or);letter-spacing:.06em;}
+    .cmd-benefit-key{font-family:var(--font-c);font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.2rem;}
+
+    /* ─── Clickable photo link ─── */
+    .ccard-img-link { display: block; text-decoration: none; }
+    .ccard-img-link:hover .ccard-img::after {
+      opacity: 1;
+    }
+    .ccard-img::after {
+      content: 'Voir détails';
+      position: absolute; inset: 0; z-index: 4;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-c); font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--blanc);
+      background: rgba(204,0,0,.52);
+      opacity: 0;
+      transition: opacity .3s var(--ease);
+      pointer-events: none;
+    }
+
+    /* ─── Hamburger menu ─── */
+    .menu-btn {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      width: 40px; height: 40px;
+      background: none; border: none; padding: 8px; cursor: pointer; flex-shrink: 0;
+    }
+    .menu-btn span {
+      display: block; width: 22px; height: 2px;
+      background: var(--blanc); transition: transform .3s var(--ease), opacity .3s;
+      transform-origin: center;
+    }
+    .menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-btn.open span:nth-child(2) { opacity: 0; }
+    .menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width:900px) { .menu-btn { display: flex; } }
+
+    .mobile-menu {
+      position: fixed; top: 70px; left: 0; right: 0; z-index: 998;
+      background: rgba(10,10,10,.97); backdrop-filter: blur(18px);
+      display: flex; flex-direction: column;
+      padding: 0 5%;
+      border-bottom: 1px solid rgba(201,168,76,.12);
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s var(--ease), padding .4s var(--ease);
+    }
+    .mobile-menu.open { max-height: 400px; padding: 1rem 5% 1.5rem; }
+    .mobile-menu a {
+      font-family: var(--font-c); font-size: .85rem; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(255,255,255,.65); text-decoration: none;
+      padding: .85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: color var(--dur);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--or); }
+
+    /* ─── Mobile cursor fix ─── */
+    @media (hover: none), (pointer: coarse) {
+      html { cursor: auto; }
+      #c, #cr { display: none; }
+      .vid-dot { cursor: pointer; }
+      .ccta { cursor: pointer; }
+    }
+
+    /* ─── Mobile improvements ─── */
+    @media (max-width: 580px) {
+      /* Hero : centrage vertical, hauteur plein écran */
+      .hero { height: 100vh; height: 100dvh; align-items: center; }
+      .hero-inner { padding: 80px 5% 2rem; max-width: 100%; }
+      .hero-sub { font-size: .84rem; margin-bottom: 1.6rem; }
+      .hero-btns { gap: .6rem; }
+      .btn-primary, .btn-outline { padding: .75rem 1.4rem; font-size: .72rem; }
+      /* Nav */
+      .nav-cta { padding: .45rem 1rem; font-size: .68rem; }
+      /* Stock */
+      #stock { padding: 4rem 4% 5rem; }
+      .stock-head { margin-bottom: 1.5rem; gap: 1rem; }
+      .filter-tabs { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .filter-tabs::-webkit-scrollbar { display: none; }
+      .ftab { padding: .75rem 1.1rem; font-size: .7rem; }
+      .ccta { padding: .6rem 1rem; font-size: .68rem; }
+      .ccard-img { height: 195px; }
+    }
+    /* Cacher "Nous trouver" sur très petit écran pour éviter surcharge nav */
+    @media (max-width: 420px) { .nav-cta { display: none; } }
+
+    /* ─── WhatsApp Chat Widget ─── */
+    .wa-widget {
+      position: fixed; bottom: 1.6rem; left: 1.6rem; z-index: 9000;
+      display: flex; flex-direction: column; align-items: flex-start; gap: .8rem;
+      pointer-events: none;
+    }
+    /* Popup */
+    .wa-popup {
+      width: 300px;
+      background: #fff; border-radius: 16px;
+      box-shadow: 0 12px 48px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.1);
+      overflow: hidden;
+      transform: scale(.92) translateY(10px);
+      opacity: 0; pointer-events: none;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), opacity .25s ease;
+      transform-origin: bottom left;
+    }
+    .wa-popup.open {
+      transform: scale(1) translateY(0);
+      opacity: 1; pointer-events: auto;
+    }
+    /* Header */
+    .wa-popup-header {
+      display: flex; align-items: center; gap: .75rem;
+      background: #25D366; padding: .9rem 1rem;
+    }
+    .wa-popup-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .wa-popup-avatar svg { width: 24px; height: 24px; fill: #fff; }
+    .wa-popup-name {
+      font-family: var(--font-c); font-size: .78rem; font-weight: 700;
+      letter-spacing: .06em; color: #fff; text-transform: uppercase;
+    }
+    .wa-popup-status {
+      font-size: .7rem; color: rgba(255,255,255,.8); margin-top: .1rem;
+    }
+    .wa-popup-close {
+      margin-left: auto; background: none; border: none;
+      color: rgba(255,255,255,.7); font-size: 1rem; cursor: pointer; line-height: 1;
+      padding: .2rem; transition: color .2s;
+    }
+    .wa-popup-close:hover { color: #fff; }
+    /* Body */
+    .wa-popup-body {
+      padding: 1rem; background: #ECE5DD;
+    }
+    .wa-bubble {
+      background: #fff; border-radius: 0 10px 10px 10px;
+      padding: .7rem .9rem; max-width: 90%; position: relative;
+      box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    }
+    .wa-bubble::before {
+      content: ''; position: absolute; top: 0; left: -8px;
+      border: 8px solid transparent; border-top-color: #fff; border-left: 0;
+    }
+    .wa-bubble p {
+      font-size: .82rem; color: #111; line-height: 1.55; margin-bottom: .35rem;
+    }
+    .wa-bubble p:last-of-type { margin-bottom: 0; }
+    .wa-time {
+      display: block; text-align: right; font-size: .65rem;
+      color: #999; margin-top: .3rem;
+    }
+    /* CTA */
+    .wa-start {
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+      background: #25D366; color: #fff;
+      font-family: var(--font-c); font-size: .75rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      text-decoration: none; padding: .85rem 1rem;
+      transition: background .2s;
+      cursor: pointer;
+    }
+    .wa-start:hover { background: #1ebe5d; }
+    .wa-start svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
+    /* FAB */
+    .wa-fab {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.45);
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
+      pointer-events: auto;
+    }
+    .wa-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,.55); }
+    .wa-fab svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-notif {
+      position: absolute; top: -3px; right: -3px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--rouge); color: #fff;
+      font-size: .6rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid #fff;
+      animation: wa-pulse 2s ease-in-out infinite;
+    }
+    .wa-notif.hidden { display: none; }
+    @keyframes wa-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* ─── Arabic / RTL ─── */
+    html.ar { direction: rtl; }
+    html.ar body,
+    html.ar .hero-sub,
+    html.ar .ssub,
+    html.ar .svc-desc,
+    html.ar .cmd-step-desc,
+    html.ar .loc-val,
+    html.ar .f-copy,
+    html.ar .wa-bubble p { font-family: 'Cairo', sans-serif; font-weight: 400; }
+    html.ar .hero h1,
+    html.ar .stitle,
+    html.ar .svc-title,
+    html.ar .cmodel,
+    html.ar .f-tag,
+    html.ar .cmd-origin-title { font-family: 'Cairo', sans-serif; font-weight: 700; letter-spacing: 0; }
+    html.ar .slabel,
+    html.ar .hero-label,
+    html.ar .nav-links a,
+    html.ar .nav-cta,
+    html.ar .mobile-menu a,
+    html.ar .ftab,
+    html.ar .cbrand,
+    html.ar .cnew,
+    html.ar .ccta,
+    html.ar .cmd-step-title,
+    html.ar .cmd-benefit-key,
+    html.ar .loc-ititle,
+    html.ar .scroll-txt,
+    html.ar #langBtn { font-family: 'Cairo', sans-serif; font-weight: 600; letter-spacing: 0; }
+    /* Hero h1 : taille réduite pour l'arabe */
+    html.ar .hero h1 { font-size: clamp(2.6rem, 5.5vw, 5rem); line-height: 1.1; }
+    /* Prices : keep LTR layout exactly like French */
+    html.ar .cprice-row { flex-direction: row !important; }
+    html.ar .cprice,
+    html.ar .ccurr,
+    html.ar [data-i18n="price-showroom"],
+    html.ar [data-i18n="price-request"] { direction: ltr; unicode-bidi: embed; text-align: left; }
+    /* Phone/email links: always LTR */
+    html.ar .loc-val a { direction: ltr; unicode-bidi: embed; display: inline-block; }
+    html.ar .wa-widget { left: auto; right: 1.6rem; }
+    html.ar .wa-popup { transform-origin: bottom right; }
+    html.ar .wa-bubble { border-radius: 10px 0 10px 10px; }
+    html.ar .wa-bubble::before { left: auto; right: -8px; border-left: 8px solid transparent; border-right: 0; }
+    #langBtn {
+      font-family: var(--font-c); font-size: .68rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: rgba(255,255,255,.6); background: transparent;
+      border: 1px solid rgba(255,255,255,.18);
+      padding: .3rem .7rem; cursor: pointer;
+      transition: color var(--dur), border-color var(--dur);
+      margin-left: .8rem; flex-shrink: 0; line-height: 1.4;
+    }
+    #langBtn:hover { color: var(--or); border-color: var(--or); }
+    html.ar #langBtn { margin-left: 0; margin-right: .8rem; letter-spacing: 0; }
+  </style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="c"></div>
+<div id="cr"></div>
+
+<!-- ── Nav ── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="logo%20showroom/gemini-svg%20(1).svg" alt="" class="nav-logo-icon">
+    <img src="logo%20showroom/gemini-svg%20(2).svg" alt="Bounechada Auto" class="nav-logo-text">
+  </a>
+  <div class="nav-links">
+    <a href="#stock" data-i18n="nav-stock">Stock</a>
+    <a href="#commande" data-i18n="nav-commande">Sur commande</a>
+    <a href="#marques" data-i18n="nav-marques">Marques</a>
+    <a href="#services" data-i18n="nav-services">Services</a>
+    <a href="#localisation" data-i18n="nav-localisation">Localisation</a>
+  </div>
+  <a href="#localisation" class="nav-cta" data-i18n="nav-trouver">Nous trouver</a>
+  <button id="langBtn" onclick="toggleLang()" aria-label="Langue">FR | عر</button>
+  <button id="menuBtn" class="menu-btn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="mobile-menu">
+  <a href="#stock" data-i18n="nav-stock">Stock</a>
+  <a href="#commande" data-i18n="nav-commande">Sur commande</a>
+  <a href="#marques" data-i18n="nav-marques">Marques</a>
+  <a href="#services" data-i18n="nav-services">Services</a>
+  <a href="#localisation" data-i18n="nav-localisation">Localisation</a>
+</div>
+
+<!-- ── Hero ── -->
+<section class="hero">
+
+  <!-- Vidéo plein écran en fond -->
+  <div class="hero-visual">
+    <div class="vid-wrap">
+      <video id="heroVid" autoplay muted playsinline>
+        <source src="_media/hero.mp4" type="video/mp4">
+      </video>
+      <div class="vid-overlay"></div>
+    </div>
+    <div class="vid-badge">Stock 2026</div>
+    <div class="vid-counter" id="vidCounter">1 / 4</div>
+    <div class="vid-dots" id="vidDots">
+      <div class="vid-dot on"></div>
+      <div class="vid-dot"></div>
+      <div class="vid-dot"></div>
+      <div class="vid-dot"></div>
+    </div>
+  </div>
+
+  <!-- Contenu texte en overlay -->
+  <div class="hero-inner">
+    <p class="hero-label" data-i18n="hero-label">Showroom Automobile — Chéraga, Alger</p>
+    <h1 data-i18n="hero-h1">L’excellence<br>automobile,<br><span class="accent">à votre portée</span></h1>
+    <p class="hero-sub" data-i18n="hero-sub">Showroom automobile à Chéraga, Alger. Bestune, GAC, Geely, Hyundai, MG, Mercedes-Benz, Kaiyi, Livan, Porsche — dédouanement et carte grise le jour même.</p>
+    <div class="hero-btns">
+      <a href="#stock" class="btn-primary" data-i18n="btn-stock">Voir le stock</a>
+      <a href="#localisation" class="btn-outline" data-i18n="btn-visit">Nous rendre visite</a>
+    </div>
+  </div>
+
+  <div class="scroll-ind">
+    <div class="scroll-bar"></div>
+    <span class="scroll-txt" data-i18n="scroll-txt">Défiler</span>
+  </div>
+</section>
+
+<!-- ── Stock ── -->
+<section id="stock">
+  <div class="stock-head">
+    <div>
+      <p class="slabel rv" data-i18n="stock-label">Notre Stock</p>
+      <h2 class="stitle rv d1" data-i18n="stock-title">Véhicules disponibles</h2>
+      <div class="rline rv d2"></div>
+      <p class="ssub rv d2" data-i18n="stock-sub">Tous nos véhicules sont en stock et disponibles immédiatement. Prix en Dinars Algériens.</p>
+    </div>
+    <div class="filter-tabs rv d3">
+      <button class="ftab active" data-filter="all" data-i18n="filter-all">Tous</button>
+      <button class="ftab" data-filter="bestune">Bestune</button>
+      <button class="ftab" data-filter="gac">GAC</button>
+      <button class="ftab" data-filter="geely">Geely</button>
+      <button class="ftab" data-filter="hyundai">Hyundai</button>
+      <button class="ftab" data-filter="kaiyi">Kaiyi</button>
+      <button class="ftab" data-filter="livan">Livan</button>
+      <button class="ftab" data-filter="mercedes">Mercedes</button>
+      <button class="ftab" data-filter="mg">MG</button>
+      <button class="ftab" data-filter="porsche">Porsche</button>
+      <button class="ftab" data-filter="volkswagen">Volkswagen</button>
+      <button class="ftab" data-filter="opel">Opel</button>
+      <button class="ftab" data-filter="audi">Audi</button>
+      <button class="ftab" data-filter="bmw">BMW</button>
+      <button class="ftab" data-filter="kia">Kia</button>
+      <button class="ftab" data-filter="peugeot">Peugeot</button>
+      <button class="ftab" data-filter="yamaha">Yamaha</button>
+    </div>
+  </div>
+
+  <div class="stock-grid">
+
+    <!-- BMW M3 Competition 2026 -->
+    <div class="ccard rv d1" data-brand="bmw">
+      <a href="bmw-m3.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="voiture/BMW M3 2026/IMG-20260501-WA0000.jpg" alt="BMW M3 Competition 2026" loading="lazy" decoding="async">
+        <span class="cbrand">BMW M</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">M3 Competition 2026</div>
+        <div class="cdetails">2026 · Neuf · 3.0L BiTurbo 503ch</div>
+        <div class="cprice-row">
+          <div>
+            <div style="font-family:var(--font-d);font-size:1.4rem;color:var(--rouge);letter-spacing:.04em;" data-i18n="price-request">Sur demande</div>
+            <div class="ccurr">RWD · Auto 8v · 0–100 en 3,4s</div>
+          </div>
+          <a href="bmw-m3.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mercedes-Benz GLE Coupé 2026 -->
+    <div class="ccard rv d2" data-brand="mercedes">
+      <a href="mercedes-gle.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/mercedes-gle/p2.jpg" alt="Mercedes-Benz GLE Coupé 2026" loading="lazy" decoding="async" style="object-position:center 60%">
+        <span class="cbrand">Mercedes-Benz</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">GLE Coupé 2026</div>
+        <div class="cdetails">2026 · Noir · AMG Line · 3.0T</div>
+        <div class="cprice-row">
+          <div>
+            <div style="font-family:var(--font-d);font-size:1.1rem;color:var(--muted);letter-spacing:.04em;" data-i18n="price-showroom">Prix au showroom</div>
+            <div class="ccurr" data-i18n="ccurr-enquire">Renseignez-vous en agence</div>
+          </div>
+          <a href="mercedes-gle.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Porsche Cayenne GTS V8 2026 -->
+    <div class="ccard rv d3" data-brand="porsche">
+      <a href="porsche-cayenne.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/porsche-cayenne/p8.jpg" alt="Porsche Cayenne GTS V8 2026" loading="lazy" decoding="async" style="object-position:center 62%">
+        <span class="cbrand">Porsche</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">Cayenne GTS V8 2026</div>
+        <div class="cdetails">2026 · Noir Jet · 4.0L V8 500ch</div>
+        <div class="cprice-row">
+          <div>
+            <div style="font-family:var(--font-d);font-size:1.1rem;color:var(--muted);letter-spacing:.04em;" data-i18n="price-showroom">Prix au showroom</div>
+            <div class="ccurr" data-i18n="ccurr-enquire">Renseignez-vous en agence</div>
+          </div>
+          <a href="porsche-cayenne.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bestune B70 2025 -->
+    <div class="ccard rv d1" data-brand="bestune">
+      <a href="bestune-b70.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/bestune-b70/681054046_122172972230597089_6083456843856349167_n.jpg" alt="Bestune B70 S 2025" loading="lazy" decoding="async" style="object-position:center 70%">
+        <span class="cbrand">Bestune</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">B70 S 2025</div>
+        <div class="cdetails">2025 · Blanc Nacré · 1.5T Turbo</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">6 100 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="bestune-b70.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAC GS3 2026 -->
+    <div class="ccard rv d2" data-brand="gac">
+      <a href="gac-gs3.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/gac-gs3/660291202_122170938590597089_780823740205721094_n.jpg" alt="GAC GS3 2026" loading="lazy" decoding="async" style="object-position:center 65%">
+        <span class="cbrand">GAC Motor</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">GS3 2026</div>
+        <div class="cdetails">2026 · Gris Métallisé · 1.5T</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">4 850 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="gac-gs3.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geely Boyue L 2026 -->
+    <div class="ccard rv d3" data-brand="geely">
+      <a href="geely-boyue.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/geely-boyue/678240808_122172653630597089_2095274657487114885_n.jpg" alt="Geely Boyue L 2026" loading="lazy" decoding="async" style="object-position:center 65%">
+        <span class="cbrand">Geely</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">Boyue L 2026</div>
+        <div class="cdetails">2026 · Noir · 2.0T Turbo</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">7 500 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="geely-boyue.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geely Coolray 2026 -->
+    <div class="ccard rv d1" data-brand="geely">
+      <a href="geely-coolray.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/geely-coolray/611691409_122162688626597089_3236929931185368148_n.jpg" alt="Geely Coolray 2026" loading="lazy" decoding="async" style="object-position:center 55%">
+        <span class="cbrand">Geely</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">Coolray 2026</div>
+        <div class="cdetails">2026 · Violet · 1.5T Turbo</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">5 450 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="geely-coolray.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hyundai Creta 2026 -->
+    <div class="ccard rv d2" data-brand="hyundai">
+      <a href="hyundai-creta.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/hyundai-creta/647031900_122168303522597089_2957204817071657700_n.jpg" alt="Hyundai Creta 2026" loading="lazy" decoding="async" style="object-position:center 68%">
+        <span class="cbrand">Hyundai</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">Creta 2026</div>
+        <div class="cdetails">2026 · Blanc · 1.5 Essence</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">6 200 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="hyundai-creta.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MG5 180 DVVT 2026 -->
+    <div class="ccard rv d1" data-brand="mg">
+      <a href="mg5.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/mg5/p6.jpg" alt="MG5 180 DVVT 2026" loading="lazy" decoding="async" style="object-position:center 65%">
+        <span class="cbrand">MG Motor</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">MG5 2026</div>
+        <div class="cdetails">2026 · Blanc / Gris · 180 DVVT</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">4 550 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="mg5.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVAN Gx3 Pro 2026 -->
+    <div class="ccard rv d1" data-brand="livan">
+      <a href="livan-gx3.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/livan-gx3/p3.jpg" alt="LIVAN Gx3 Pro 2026" loading="lazy" decoding="async" style="object-position:center 65%">
+        <span class="cbrand">Livan</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">Gx3 Pro 2026</div>
+        <div class="cdetails">2026 · Gris Métallisé · 1.5T Turbo</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">3 750 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="livan-gx3.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Livan X3 Pro 2026 -->
+    <div class="ccard rv d2" data-brand="livan">
+      <a href="livan-x3.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="voiture/livan x3 2026/IMG-20260501-WA0083.jpg" alt="Livan X3 Pro 2026" loading="lazy" decoding="async">
+        <span class="cbrand">Livan</span>
+        <span class="cnew" style="background:#1B6CA8;" data-i18n="badge-cmd">Sur cmd</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">X3 Pro 2026</div>
+        <div class="cdetails">2026 · Neuf · 1.5L CVT · Silver / Black</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">2 600 000</div>
+            <div class="ccurr" data-i18n="ccurr-transport">Transport inclus</div>
+          </div>
+          <a href="livan-x3.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Volkswagen Tharu 300 TSI 2025 -->
+    <div class="ccard rv d1" data-brand="volkswagen">
+      <a href="vw-tharu.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="voiture/Volkswagen Tharu 2025/IMG-20260501-WA0090.jpg" alt="Volkswagen Tharu 300 TSI 2025" loading="lazy" decoding="async">
+        <span class="cbrand">Volkswagen</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">Tharu 300 TSI 2025</div>
+        <div class="cdetails">2025 · Neuf · 1.5L TSI 160ch · DCT7</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">5 700 000</div>
+            <div class="ccurr" data-i18n="ccurr-livraison">Livraison immédiate</div>
+          </div>
+          <a href="vw-tharu.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Volkswagen T-Roc 1.5 TSI 2026 -->
+    <div class="ccard rv d2" data-brand="volkswagen">
+      <a href="vw-t-roc.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/vw-t-roc/t5.jpg" alt="Volkswagen T-Roc 1.5 TSI 2026" loading="lazy" decoding="async">
+        <span class="cbrand">Volkswagen</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">T-Roc 1.5 TSI 2026</div>
+        <div class="cdetails">2026 · Neuf · 1.5 TSI 160ch · DSG7</div>
+        <div class="cprice-row">
+          <div>
+            <div style="font-family:var(--font-d);font-size:1.1rem;color:var(--muted);letter-spacing:.04em;" data-i18n="price-showroom">Prix au showroom</div>
+            <div class="ccurr" data-i18n="ccurr-enquire">Renseignez-vous en agence</div>
+          </div>
+          <a href="vw-t-roc.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- KAIYI X3 Pro 2026 -->
+    <div class="ccard rv d3" data-brand="kaiyi">
+      <a href="kaiyi-x3.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="images/kaiyi-x3/p6.jpg" alt="KAIYI X3 Pro 2026" loading="lazy" decoding="async" style="object-position:center 65%">
+        <span class="cbrand">Kaiyi</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">X3 Pro 2026</div>
+        <div class="cdetails">2026 · Blanc / Gris · 1.5T Turbo</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">4 350 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="kaiyi-x3.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opel Corsa GT 2025 -->
+    <div class="ccard rv d1" data-brand="opel">
+      <a href="opel-corsa-gt.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="voiture/Opel corsa Gt 2025/IMG-20260501-WA0126.jpg" alt="Opel Corsa GT 2025" loading="lazy" decoding="async" style="object-position:center 55%">
+        <span class="cbrand">Opel</span>
+        <span class="cnew" style="background:var(--or);color:var(--noir);" data-i18n="badge-occ">Occasion</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">Corsa GT 2025</div>
+        <div class="cdetails">2025 · 3 000 km · 1.2L Turbo 130ch</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">5 350 000</div>
+            <div class="ccurr">Dispo immédiate · EAT8</div>
+          </div>
+          <a href="opel-corsa-gt.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audi RS3 Sportback 2025 -->
+    <div class="ccard rv d1" data-brand="audi">
+      <a href="audi-rs3.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="voiture/Audi rs3 2025/IMG-20260501-WA0047.jpg" alt="Audi RS3 Sportback 2025" loading="lazy" decoding="async" style="object-position:center 60%">
+        <span class="cbrand">Audi</span>
+        <span class="cnew" style="background:var(--or);color:var(--noir);" data-i18n="badge-occ">Occasion</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">RS3 Sportback 2025</div>
+        <div class="cdetails">2025 · 11 000 km · 2.5L TFSI 5 cyl. 400ch</div>
+        <div class="cprice-row">
+          <div>
+            <div style="font-family:var(--font-d);font-size:1.4rem;color:var(--or);letter-spacing:.04em;" data-i18n="price-request">Sur demande</div>
+            <div class="ccurr">Quattro · S Tronic 7 · 0–100 en 3,8s</div>
+          </div>
+          <a href="audi-rs3.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kia KX1 2026 -->
+    <div class="ccard rv d1" data-brand="kia">
+      <a href="kia-kx1.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="voiture/Kia kx1 2026/IMG-20260501-WA0145.jpg" alt="Kia KX1 2026" loading="lazy" decoding="async" style="object-position:center 65%">
+        <span class="cbrand">Kia</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">KX1 2026</div>
+        <div class="cdetails">2026 · Neuf · 1.5L CVT 110ch</div>
+        <div class="cprice-row">
+          <div>
+            <div class="cprice">4 450 000</div>
+            <div class="ccurr" data-i18n="currency">Dinars Algériens</div>
+          </div>
+          <a href="kia-kx1.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Peugeot Traveller Business VIP 2025 -->
+    <div class="ccard rv d2" data-brand="peugeot">
+      <a href="peugeot-traveller.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="voiture/Peugeot Traveller 2025/p01.jpg" alt="Peugeot Traveller Business VIP 2025" loading="lazy" decoding="async" style="object-position:center 60%">
+        <span class="cbrand">Peugeot</span>
+        <span class="cnew" style="background:var(--or);color:var(--noir);" data-i18n="badge-occ">Occasion</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">Traveller Business VIP 2025</div>
+        <div class="cdetails">2025 · 6 000 km · 2.0L BlueHDi 180ch</div>
+        <div class="cprice-row">
+          <div>
+            <div style="font-family:var(--font-d);font-size:1.4rem;color:var(--or);letter-spacing:.04em;" data-i18n="price-request">Sur demande</div>
+            <div class="ccurr">EAT8 · Diesel · 6-7 places VIP</div>
+          </div>
+          <a href="peugeot-traveller.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Yamaha TMAX Tech MAX 560 2025 -->
+    <div class="ccard rv d3" data-brand="yamaha">
+      <a href="yamaha-tmax.html" class="ccard-img-link">
+      <div class="ccard-img">
+        <img class="ccard-photo" src="voiture/Yamaha TMAX 2025/p05.jpg" alt="Yamaha TMAX Tech MAX 560 2025" loading="lazy" decoding="async" style="object-position:center 55%">
+        <span class="cbrand">Yamaha</span>
+        <span class="cnew" data-i18n="badge-new">Nouveau</span>
+      </div>
+      </a>
+      <div class="ccard-info">
+        <div class="cmodel">TMAX Tech MAX 560 2025</div>
+        <div class="cdetails">2025 · Neuf · 562cm³ Bicylindre 47,6ch</div>
+        <div class="cprice-row">
+          <div>
+            <div style="font-family:var(--font-d);font-size:1.4rem;color:var(--rouge);letter-spacing:.04em;" data-i18n="price-request">Sur demande</div>
+            <div class="ccurr">Auto V-Belt · ABS · EURO 5+</div>
+          </div>
+          <a href="yamaha-tmax.html" class="ccta" data-i18n="cta-details">Détails</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Sur Commande ── -->
+<section id="commande">
+  <p class="slabel slabel-or rv" style="color:var(--or)" data-i18n="cmd-label">Service exclusif</p>
+  <h2 class="stitle rv d1" style="color:var(--blanc)" data-i18n="cmd-title">Voitures sur commande</h2>
+  <div class="rline rv d2"></div>
+  <p class="ssub rv d2" style="color:rgba(255,255,255,.45);max-width:600px;" data-i18n="cmd-sub">Vous n'avez pas trouvé le véhicule de vos rêves dans notre stock ? Bounechada Auto vous importe directement le modèle de votre choix — neuf, conforme, livré chez vous.</p>
+
+  <div class="cmd-header rv d2">
+    <div class="cmd-intro">
+      <div class="cmd-origins">
+        <div class="cmd-origin">
+          <div class="cmd-origin-flag" data-i18n="cmd-flag-asia">Asie</div>
+          <div class="cmd-origin-title">Chine</div>
+          <div class="cmd-brands">GAC · Geely · BYD · Chery<br>Haval · KAIYI · LIVAN · MG<br>Bestune · GWM · Dongfeng<br>Omoda · Jaecoo · Tank</div>
+        </div>
+        <div class="cmd-origin">
+          <div class="cmd-origin-flag" data-i18n="cmd-flag-europe">Europe</div>
+          <div class="cmd-origin-title">Europe</div>
+          <div class="cmd-brands">Volkswagen · BMW · Audi<br>Mercedes-Benz · Porsche<br>Opel · Peugeot · Renault<br>Volvo · Skoda · Seat</div>
+        </div>
+      </div>
+    </div>
+    <div class="cmd-steps">
+      <div class="cmd-step">
+        <div class="cmd-step-num">01</div>
+        <div class="cmd-step-body">
+          <div class="cmd-step-title" data-i18n="step1-title">Choisissez votre modèle</div>
+          <div class="cmd-step-desc" data-i18n="step1-desc">Partagez-nous la marque, le modèle, la version et les options souhaitées. Catalogue mondial disponible.</div>
+        </div>
+      </div>
+      <div class="cmd-step">
+        <div class="cmd-step-num">02</div>
+        <div class="cmd-step-body">
+          <div class="cmd-step-title" data-i18n="step2-title">Devis & confirmation</div>
+          <div class="cmd-step-desc" data-i18n="step2-desc">Nous vous envoyons un prix ferme tout compris — importation, dédouanement, livraison à Chéraga.</div>
+        </div>
+      </div>
+      <div class="cmd-step">
+        <div class="cmd-step-num">03</div>
+        <div class="cmd-step-body">
+          <div class="cmd-step-title" data-i18n="step3-title">Livraison garantie</div>
+          <div class="cmd-step-desc" data-i18n="step3-desc">Votre véhicule est importé neuf, contrôlé et livré directement dans notre showroom dans les délais convenus.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cmd-benefits rv">
+    <div class="cmd-benefit">
+      <div class="cmd-benefit-val">60–90</div>
+      <div class="cmd-benefit-key" data-i18n="benefit1">Jours délai moyen</div>
+    </div>
+    <div class="cmd-benefit">
+      <div class="cmd-benefit-val">100%</div>
+      <div class="cmd-benefit-key" data-i18n="benefit2">Véhicule neuf garanti</div>
+    </div>
+    <div class="cmd-benefit">
+      <div class="cmd-benefit-val">∞</div>
+      <div class="cmd-benefit-key" data-i18n="benefit3">Modèles disponibles</div>
+    </div>
+  </div>
+
+  <div class="cmd-gallery">
+    <div class="cmd-car rv d1">
+      <img src="images/geely-boyue/678240808_122172653630597089_2095274657487114885_n.jpg" alt="Geely Boyue L" style="object-position:center 65%">
+      <span class="cmd-car-badge chine">Chine</span>
+      <div class="cmd-car-name">Geely Boyue L 2026</div>
+    </div>
+    <div class="cmd-car rv d2">
+      <img src="images/porsche-cayenne/p8.jpg" alt="Porsche Cayenne" style="object-position:center 62%">
+      <span class="cmd-car-badge europe">Europe</span>
+      <div class="cmd-car-name">Porsche Cayenne GTS</div>
+    </div>
+    <div class="cmd-car rv d3">
+      <img src="images/gac-gs3/660291202_122170938590597089_780823740205721094_n.jpg" alt="GAC GS3" style="object-position:center 65%">
+      <span class="cmd-car-badge chine">Chine</span>
+      <div class="cmd-car-name">GAC GS3 2026</div>
+    </div>
+    <div class="cmd-car rv d1">
+      <img src="images/mercedes-gle/p2.jpg" alt="Mercedes GLE" style="object-position:center 60%">
+      <span class="cmd-car-badge europe">Europe</span>
+      <div class="cmd-car-name">Mercedes GLE Coupé</div>
+    </div>
+    <div class="cmd-car rv d2">
+      <img src="images/bestune-b70/681054046_122172972230597089_6083456843856349167_n.jpg" alt="Bestune B70" style="object-position:center 70%">
+      <span class="cmd-car-badge chine">Chine</span>
+      <div class="cmd-car-name">Bestune B70 S 2025</div>
+    </div>
+    <div class="cmd-car rv d3">
+      <img src="images/mg5/p6.jpg" alt="MG5" style="object-position:center 65%">
+      <span class="cmd-car-badge chine">Chine</span>
+      <div class="cmd-car-name">MG5 2026</div>
+    </div>
+  </div>
+
+  <div class="cmd-cta rv">
+    <a href="https://wa.me/213770557221" class="ccta" style="display:inline-block;font-size:.82rem;padding:1.1rem 3rem;text-decoration:none;" data-i18n="cmd-cta-btn">Faire une demande sur WhatsApp</a>
+    <div class="cmd-cta-note" data-i18n="cmd-cta-note">Réponse sous 24h · Devis gratuit · Sans engagement</div>
+  </div>
+</section>
+
+<!-- ── Marques ── -->
+<section id="marques">
+  <div class="marques-header">
+    <p class="slabel slabel-or rv" style="justify-content:center" data-i18n="marques-label">Nos Partenaires</p>
+    <h2 class="stitle rv d1" style="color:var(--blanc)" data-i18n="marques-title">Marques officielles</h2>
+    <div class="rline rv d2" style="margin:1rem auto 0"></div>
+  </div>
+  <div class="logo-ticker-wrap rv">
+    <div class="logo-track">
+      <!-- set 1 -->
+      <div class="logo-slide"><img src="logo%20auto/Chery_logo.svg" alt="Chery"></div>
+      <div class="logo-slide"><img src="logo%20auto/Citroen_2022.svg" alt="Citroën"></div>
+      <div class="logo-slide"><img src="logo%20auto/Dacia_2021.svg" alt="Dacia"></div>
+      <div class="logo-slide"><img src="logo%20auto/FIAT_logo_(2020).svg" alt="FIAT"></div>
+      <div class="logo-slide"><img src="logo%20auto/Geely_Auto_2023.svg" alt="Geely"></div>
+      <div class="logo-slide"><img src="logo%20auto/Jetour_logo.svg" alt="Jetour"></div>
+      <div class="logo-slide"><img src="logo%20auto/KIA_logo3.svg" alt="KIA"></div>
+      <div class="logo-slide"><img src="logo%20auto/MG_Motor_2021_logo.svg" alt="MG"></div>
+      <div class="logo-slide"><img src="logo%20auto/MINI_logo.svg" alt="MINI"></div>
+      <div class="logo-slide"><img src="logo%20auto/Mercedes-Benz_Star_(1969-1986,_2025-).svg" alt="Mercedes-Benz"></div>
+      <div class="logo-slide"><img src="logo%20auto/Opel_logo_2023.svg" alt="Opel"></div>
+      <div class="logo-slide"><img src="logo%20auto/Porsche_Wortmarke.svg" alt="Porsche"></div>
+      <!-- set 2 (seamless loop) -->
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/Chery_logo.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/Citroen_2022.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/Dacia_2021.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/FIAT_logo_(2020).svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/Geely_Auto_2023.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/Jetour_logo.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/KIA_logo3.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/MG_Motor_2021_logo.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/MINI_logo.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/Mercedes-Benz_Star_(1969-1986,_2025-).svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/Opel_logo_2023.svg" alt=""></div>
+      <div class="logo-slide" aria-hidden="true"><img src="logo%20auto/Porsche_Wortmarke.svg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Services ── -->
+<section id="services">
+  <p class="slabel rv" data-i18n="svc-label">Ce que nous offrons</p>
+  <h2 class="stitle rv d1" data-i18n="svc-title">Nos services</h2>
+  <div class="rline rv d2"></div>
+  <p class="ssub rv d2" data-i18n="svc-sub">Un accompagnement complet, du dédouanement jusqu'à votre carte grise.</p>
+
+  <div class="svc-grid">
+    <div class="svc-card rv d1">
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="10" width="32" height="28" rx="2"/>
+        <path d="M8 18h32"/>
+        <path d="M16 10v8M32 10v8"/>
+        <path d="M14 27h8M14 33h12"/>
+        <path d="M34 27l-5 5 2.5 2.5"/>
+      </svg>
+      <div class="svc-title" data-i18n="svc1-title">Dédouanement</div>
+      <p class="svc-desc" data-i18n="svc1-desc">Nous prenons en charge toutes les démarches douanières pour votre véhicule importé — rapidement, sans stress, en toute conformité.</p>
+    </div>
+    <div class="svc-card rv d2">
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 34l6-20h24l6 20H6z"/>
+        <path d="M12 14l3-8h18l3 8"/>
+        <circle cx="16" cy="38" r="4"/>
+        <circle cx="32" cy="38" r="4"/>
+        <path d="M20 38h8"/>
+      </svg>
+      <div class="svc-title" data-i18n="svc2-title">Importation directe</div>
+      <p class="svc-desc" data-i18n="svc2-desc">Véhicules importés directement depuis le fabricant — neufs, conformes aux normes algériennes, livrés dans notre showroom.</p>
+    </div>
+    <div class="svc-card rv d3">
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="14" width="32" height="22" rx="3"/>
+        <path d="M16 14v-4M32 14v-4"/>
+        <path d="M14 23h6M14 29h10"/>
+        <path d="M30 23l4 4-4 4"/>
+      </svg>
+      <div class="svc-title" data-i18n="svc3-title">Carte grise immédiate</div>
+      <p class="svc-desc" data-i18n="svc3-desc">Votre carte grise est établie au nom du client le jour même de l'achat. Vous repartez avec votre véhicule entièrement en règle.</p>
+    </div>
+    <div class="svc-card rv d4" style="position:relative;overflow:hidden;">
+      <div class="svc-soon-badge" data-i18n="svc-soon">Très bientôt</div>
+      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.45;">
+        <path d="M38 20c0-7.7-6.3-14-14-14S10 12.3 10 20c0 5.5 3.2 10.3 8 12.7V38h12v-5.3c4.8-2.4 8-7.2 8-12.7z"/>
+        <path d="M18 38h12M21 42h6"/>
+        <path d="M24 14v8l5 3"/>
+      </svg>
+      <div class="svc-title" style="opacity:.5;" data-i18n="svc4-title">Service après-vente</div>
+      <p class="svc-desc" style="opacity:.4;" data-i18n="svc4-desc">Assistance, suivi technique et support client pour tous les véhicules achetés chez Bounechada Auto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Localisation ── -->
+<section id="localisation">
+  <video class="loc-video-bg" autoplay muted loop playsinline>
+    <source src="_media/video-3.mp4" type="video/mp4">
+  </video>
+  <div class="loc-content">
+  <p class="slabel slabel-or rv" data-i18n="loc-label">Nous Trouver</p>
+  <h2 class="stitle rv d1" style="color:var(--blanc)" data-i18n="loc-title">Notre showroom</h2>
+  <div class="rline rv d2"></div>
+
+  <div class="loc-grid">
+    <div>
+      <div class="loc-item rv d1">
+        <svg class="loc-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        <div>
+          <div class="loc-ititle" data-i18n="loc-addr-title">Adresse</div>
+          <div class="loc-val" data-i18n="loc-addr-val">Chéraga, Alger<br>الجزائر — Algérie</div>
+        </div>
+      </div>
+      <div class="loc-item rv d2">
+        <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <div>
+          <div class="loc-ititle" data-i18n="loc-hours-title">Horaires d'ouverture</div>
+          <div class="loc-val" data-i18n="loc-hours-val">Samedi – Jeudi : 9h00 – 18h00<br>Vendredi : Fermé</div>
+        </div>
+      </div>
+      <div class="loc-item rv d3">
+        <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .98h3a2 2 0 012 1.72c.127.96.361 1.9.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        <div>
+          <div class="loc-ititle" data-i18n="loc-comm-title">Commercial</div>
+          <div class="loc-val"><a href="tel:+213797962116" style="color:inherit;text-decoration:none;">0797 96 21 16</a><br><a href="tel:+213791221673" style="color:inherit;text-decoration:none;">0791 22 16 73</a><br><a href="tel:+213550876222" style="color:inherit;text-decoration:none;">0550 87 62 22</a></div>
+        </div>
+      </div>
+      <div class="loc-item rv d4">
+        <svg class="loc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <div>
+          <div class="loc-ititle" data-i18n="loc-email-title">Email</div>
+          <div class="loc-val"><a href="mailto:bounechadaauto@gmail.com" style="color:inherit;text-decoration:none;">bounechadaauto@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap rv d2">
+      <iframe
+        src="https://maps.google.com/maps?q=Bounechada+Auto+Ch%C3%A9raga+Alger&output=embed&hl=fr"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+  </div><!-- /loc-content -->
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="f-logo">
+        <img src="logo%20showroom/gemini-svg%20(1).svg" alt="" class="f-logo-icon">
+        <img src="logo%20showroom/gemini-svg%20(2).svg" alt="Bounechada Auto" class="f-logo-text">
+      </div>
+      <div class="f-tag" data-i18n="footer-tag">Showroom Premium — Chéraga, Alger</div>
+    </div>
+
+    <div class="f-copy" data-i18n="footer-copy">© 2026 Bounechada Auto. Tous droits réservés.</div>
+  </div>
+  <div class="f-social" style="justify-content:center;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.07);">
+    <a href="https://www.facebook.com/profile.php?id=61567912688840" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@bounechada_auto?_r=1&amp;_t=ZS-963ngkPVAKw" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+    </a>
+    <a href="https://www.ouedkniss.com/store/25355/bounechada-automobile/accueil" target="_blank" rel="noopener" aria-label="Ouedkniss">
+      <img src="unnamed.png" alt="Ouedkniss" style="width:22px;height:22px;object-fit:contain;pointer-events:none;">
+    </a>
+  </div>
+</footer>
+
+<!-- ── WhatsApp Chat Widget ── -->
+<div class="wa-widget" id="waWidget">
+  <div class="wa-popup" id="waPopup">
+    <div class="wa-popup-header">
+      <div class="wa-popup-avatar">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 1C7.729 1 1 7.729 1 16c0 2.66.693 5.15 1.902 7.311L1 31l7.878-1.878A14.944 14.944 0 0016 31c8.271 0 15-6.729 15-15S24.271 1 16 1zm0 27.5a12.44 12.44 0 01-6.344-1.736l-.455-.27-4.674 1.115 1.151-4.55-.298-.468A12.453 12.453 0 013.5 16C3.5 9.096 9.096 3.5 16 3.5S28.5 9.096 28.5 16 22.904 28.5 16 28.5zm6.84-9.347c-.375-.188-2.217-1.094-2.561-1.219-.344-.125-.594-.188-.844.188s-.969 1.219-1.188 1.469-.438.281-.813.094c-.375-.188-1.584-.584-3.018-1.863-1.115-.994-1.866-2.222-2.085-2.597-.219-.375-.023-.578.165-.765.169-.169.375-.438.563-.657.188-.219.25-.375.375-.625.125-.25.063-.469-.031-.657-.094-.188-.844-2.031-1.156-2.781-.305-.731-.615-.631-.844-.643-.219-.011-.469-.013-.719-.013s-.656.094-.999.469c-.344.375-1.313 1.281-1.313 3.125s1.344 3.625 1.531 3.875c.188.25 2.646 4.04 6.41 5.665.896.388 1.595.619 2.14.793.899.286 1.717.246 2.363.149.721-.108 2.217-.906 2.53-1.781.313-.875.313-1.625.219-1.781-.093-.156-.343-.25-.718-.438z"/></svg>
+      </div>
+      <div>
+        <div class="wa-popup-name">Bounechada Auto</div>
+        <div class="wa-popup-status" data-i18n="wa-status">● En ligne</div>
+      </div>
+      <button class="wa-popup-close" id="waClose" aria-label="Fermer">✕</button>
+    </div>
+    <div class="wa-popup-body">
+      <div class="wa-bubble">
+        <p data-i18n="wa-p1">Bonjour ! 👋</p>
+        <p data-i18n="wa-p2">Comment pouvons-nous vous aider ? Notre équipe est disponible pour répondre à toutes vos questions sur nos véhicules.</p>
+        <span class="wa-time" data-i18n="wa-time">maintenant</span>
+      </div>
+    </div>
+    <a href="https://wa.me/213770557221?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d%27informations%20sur%20vos%20v%C3%A9hicules." target="_blank" rel="noopener" class="wa-start">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 1C7.729 1 1 7.729 1 16c0 2.66.693 5.15 1.902 7.311L1 31l7.878-1.878A14.944 14.944 0 0016 31c8.271 0 15-6.729 15-15S24.271 1 16 1zm0 27.5a12.44 12.44 0 01-6.344-1.736l-.455-.27-4.674 1.115 1.151-4.55-.298-.468A12.453 12.453 0 013.5 16C3.5 9.096 9.096 3.5 16 3.5S28.5 9.096 28.5 16 22.904 28.5 16 28.5zm6.84-9.347c-.375-.188-2.217-1.094-2.561-1.219-.344-.125-.594-.188-.844.188s-.969 1.219-1.188 1.469-.438.281-.813.094c-.375-.188-1.584-.584-3.018-1.863-1.115-.994-1.866-2.222-2.085-2.597-.219-.375-.023-.578.165-.765.169-.169.375-.438.563-.657.188-.219.25-.375.375-.625.125-.25.063-.469-.031-.657-.094-.188-.844-2.031-1.156-2.781-.305-.731-.615-.631-.844-.643-.219-.011-.469-.013-.719-.013s-.656.094-.999.469c-.344.375-1.313 1.281-1.313 3.125s1.344 3.625 1.531 3.875c.188.25 2.646 4.04 6.41 5.665.896.388 1.595.619 2.14.793.899.286 1.717.246 2.363.149.721-.108 2.217-.906 2.53-1.781.313-.875.313-1.625.219-1.781-.093-.156-.343-.25-.718-.438z"/></svg>
+      <span data-i18n="wa-start">Démarrer la conversation</span>
+    </a>
+  </div>
+  <button class="wa-fab" id="waFab" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 1C7.729 1 1 7.729 1 16c0 2.66.693 5.15 1.902 7.311L1 31l7.878-1.878A14.944 14.944 0 0016 31c8.271 0 15-6.729 15-15S24.271 1 16 1zm0 27.5a12.44 12.44 0 01-6.344-1.736l-.455-.27-4.674 1.115 1.151-4.55-.298-.468A12.453 12.453 0 013.5 16C3.5 9.096 9.096 3.5 16 3.5S28.5 9.096 28.5 16 22.904 28.5 16 28.5zm6.84-9.347c-.375-.188-2.217-1.094-2.561-1.219-.344-.125-.594-.188-.844.188s-.969 1.219-1.188 1.469-.438.281-.813.094c-.375-.188-1.584-.584-3.018-1.863-1.115-.994-1.866-2.222-2.085-2.597-.219-.375-.023-.578.165-.765.169-.169.375-.438.563-.657.188-.219.25-.375.375-.625.125-.25.063-.469-.031-.657-.094-.188-.844-2.031-1.156-2.781-.305-.731-.615-.631-.844-.643-.219-.011-.469-.013-.719-.013s-.656.094-.999.469c-.344.375-1.313 1.281-1.313 3.125s1.344 3.625 1.531 3.875c.188.25 2.646 4.04 6.41 5.665.896.388 1.595.619 2.14.793.899.286 1.717.246 2.363.149.721-.108 2.217-.906 2.53-1.781.313-.875.313-1.625.219-1.781-.093-.156-.343-.25-.718-.438z"/></svg>
+    <span class="wa-notif" id="waNotif">1</span>
+  </button>
+</div>
+
+<script>
+  // ── Video carousel
+  const videos = [
+    '_media/hero.mp4',
+    '_media/showroom.mp4',
+    '_media/video-1.mp4',
+    '_media/video-2.mp4'
+  ];
+  let vidIdx = 0;
+  const heroVid  = document.getElementById('heroVid');
+  const counter  = document.getElementById('vidCounter');
+  const dots     = document.querySelectorAll('.vid-dot');
+
+  function switchVideo(idx) {
+    vidIdx = idx;
+    heroVid.src = videos[vidIdx];
+    heroVid.load();
+    heroVid.play().catch(() => {});
+    counter.textContent = (vidIdx + 1) + ' / ' + videos.length;
+    dots.forEach((d, i) => d.classList.toggle('on', i === vidIdx));
+  }
+
+  heroVid.addEventListener('ended', () => switchVideo((vidIdx + 1) % videos.length));
+  dots.forEach((d, i) => d.addEventListener('click', () => switchVideo(i)));
+
+  // ── Custom cursor (GPU-composited via transform)
+  const dot  = document.getElementById('c');
+  const ring = document.getElementById('cr');
+  let mx = -100, my = -100, rx = -100, ry = -100, rafId;
+
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+  function tick() {
+    dot.style.transform  = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+    rx += (mx - rx) * 0.13;
+    ry += (my - ry) * 0.13;
+    ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    rafId = requestAnimationFrame(tick);
+  }
+  rafId = requestAnimationFrame(tick);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(rafId);
+    else rafId = requestAnimationFrame(tick);
+  });
+
+  document.querySelectorAll('a, button, .ccard, .svc-card, .ftab').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hov'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hov'));
+  });
+
+  // ── Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('s', scrollY > 60), { passive: true });
+
+  // ── Reveal on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+  // ── Stock filter
+  const tabs  = document.querySelectorAll('.ftab');
+  const cards = document.querySelectorAll('.ccard');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const f = tab.dataset.filter;
+      cards.forEach(c => {
+        c.style.display = (f === 'all' || c.dataset.brand === f) ? '' : 'none';
+      });
+    });
+  });
+
+  // ── Hamburger menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menuBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ── WhatsApp Chat Widget
+  const waFab    = document.getElementById('waFab');
+  const waPopup  = document.getElementById('waPopup');
+  const waClose  = document.getElementById('waClose');
+  const waNotif  = document.getElementById('waNotif');
+
+  waFab.addEventListener('click', () => {
+    waPopup.classList.toggle('open');
+    waNotif.classList.add('hidden');
+  });
+  waClose.addEventListener('click', e => {
+    e.stopPropagation();
+    waPopup.classList.remove('open');
+  });
+
+  document.addEventListener('click', e => {
+    if (waPopup.classList.contains('open') && !document.getElementById('waWidget').contains(e.target)) {
+      waPopup.classList.remove('open');
+    }
+  });
+
+  // ── i18n ──────────────────────────────────────────────────────────────
+  const translations = {
+    fr: {
+      "nav-stock": "Stock",
+      "nav-commande": "Sur commande",
+      "nav-marques": "Marques",
+      "nav-services": "Services",
+      "nav-localisation": "Localisation",
+      "nav-trouver": "Nous trouver",
+      "hero-label": "Showroom Automobile — Chéraga, Alger",
+      "hero-h1": "L’excellence<br>automobile,<br><span class=\"accent\">à votre portée</span>",
+      "hero-sub": "Showroom automobile à Chéraga, Alger. Bestune, GAC, Geely, Hyundai, MG, Mercedes-Benz, Kaiyi, Livan, Porsche — dédouanement et carte grise le jour même.",
+      "btn-stock": "Voir le stock",
+      "btn-visit": "Nous rendre visite",
+      "scroll-txt": "Défiler",
+      "stock-label": "Notre Stock",
+      "stock-title": "Véhicules disponibles",
+      "stock-sub": "Tous nos véhicules sont en stock et disponibles immédiatement. Prix en Dinars Algériens.",
+      "filter-all": "Tous",
+      "badge-new": "Nouveau",
+      "badge-occ": "Occasion",
+      "badge-cmd": "Sur cmd",
+      "cta-details": "Détails",
+      "currency": "Dinars Algériens",
+      "ccurr-enquire": "Renseignez-vous en agence",
+      "ccurr-transport": "Transport inclus",
+      "ccurr-livraison": "Livraison immédiate",
+      "price-showroom": "Prix au showroom",
+      "price-request": "Sur demande",
+      "cmd-label": "Service exclusif",
+      "cmd-title": "Voitures sur commande",
+      "cmd-sub": "Vous n’avez pas trouvé le véhicule de vos rêves dans notre stock ? Bounechada Auto vous importe directement le modèle de votre choix — neuf, conforme, livré chez vous.",
+      "cmd-flag-asia": "Asie",
+      "cmd-flag-europe": "Europe",
+      "step1-title": "Choisissez votre modèle",
+      "step1-desc": "Partagez-nous la marque, le modèle, la version et les options souhaitées. Catalogue mondial disponible.",
+      "step2-title": "Devis &amp; confirmation",
+      "step2-desc": "Nous vous envoyons un prix ferme tout compris — importation, dédouanement, livraison à Chéraga.",
+      "step3-title": "Livraison garantie",
+      "step3-desc": "Votre véhicule est importé neuf, contrôlé et livré directement dans notre showroom dans les délais convenus.",
+      "benefit1": "Jours délai moyen",
+      "benefit2": "Véhicule neuf garanti",
+      "benefit3": "Modèles disponibles",
+      "cmd-cta-btn": "Faire une demande sur WhatsApp",
+      "cmd-cta-note": "Réponse sous 24h · Devis gratuit · Sans engagement",
+      "marques-label": "Nos Partenaires",
+      "marques-title": "Marques officielles",
+      "svc-label": "Ce que nous offrons",
+      "svc-title": "Nos services",
+      "svc-sub": "Un accompagnement complet, du dédouanement jusqu’à votre carte grise.",
+      "svc1-title": "Dédouanement",
+      "svc1-desc": "Nous prenons en charge toutes les démarches douanières pour votre véhicule importé — rapidement, sans stress, en toute conformité.",
+      "svc2-title": "Importation directe",
+      "svc2-desc": "Véhicules importés directement depuis le fabricant — neufs, conformes aux normes algériennes, livrés dans notre showroom.",
+      "svc3-title": "Carte grise immédiate",
+      "svc3-desc": "Votre carte grise est établie au nom du client le jour même de l’achat. Vous repartez avec votre véhicule entièrement en règle.",
+      "svc-soon": "Très bientôt",
+      "svc4-title": "Service après-vente",
+      "svc4-desc": "Assistance, suivi technique et support client pour tous les véhicules achetés chez Bounechada Auto.",
+      "loc-label": "Nous Trouver",
+      "loc-title": "Notre showroom",
+      "loc-addr-title": "Adresse",
+      "loc-addr-val": "Chéraga, Alger<br>الجزائر — Algérie",
+      "loc-hours-title": "Horaires d’ouverture",
+      "loc-hours-val": "Samedi – Jeudi : 9h00 – 18h00<br>Vendredi : Fermé",
+      "loc-comm-title": "Commercial",
+      "loc-email-title": "Email",
+      "footer-tag": "Showroom Premium — Chéraga, Alger",
+      "footer-copy": "© 2026 Bounechada Auto. Tous droits réservés.",
+      "wa-status": "● En ligne",
+      "wa-p1": "Bonjour ! 👋",
+      "wa-p2": "Comment pouvons-nous vous aider ? Notre équipe est disponible pour répondre à toutes vos questions sur nos véhicules.",
+      "wa-time": "maintenant",
+      "wa-start": "Démarrer la conversation"
+    },
+    ar: {
+      "nav-stock": "المخزون",
+      "nav-commande": "بالطلب",
+      "nav-marques": "العلامات",
+      "nav-services": "الخدمات",
+      "nav-localisation": "الموقع",
+      "nav-trouver": "ابحث عنا",
+      "hero-label": "معرض سيارات — الشراقة، الجزائر",
+      "hero-h1": "التميّز في عالم السيارات،<br><span class=\"accent\">في متناولكم</span>",
+      "hero-sub": "معرض سيارات في الشراقة، الجزائر. Bestune، GAC، Geely، Hyundai، MG، Mercedes-Benz، Kaiyi، Livan، Porsche — تخليص جمركي وبطاقة رمادية في نفس اليوم.",
+      "btn-stock": "عرض المخزون",
+      "btn-visit": "زيارة المعرض",
+      "scroll-txt": "تمرير",
+      "stock-label": "مخزوننا",
+      "stock-title": "السيارات المتاحة",
+      "stock-sub": "جميع سياراتنا متوفرة في المخزون وجاهزة للتسليم الفوري. الأسعار بالدينار الجزائري.",
+      "filter-all": "الكل",
+      "badge-new": "جديد",
+      "badge-occ": "مستعمل",
+      "badge-cmd": "بالطلب",
+      "cta-details": "التفاصيل",
+      "currency": "دينار جزائري",
+      "ccurr-enquire": "استفسروا في المعرض",
+      "ccurr-transport": "الشحن مشمول",
+      "ccurr-livraison": "توصيل فوري",
+      "price-showroom": "السعر في المعرض",
+      "price-request": "عند الطلب",
+      "cmd-label": "خدمة حصرية",
+      "cmd-title": "سيارات بالطلب",
+      "cmd-sub": "لم تجد سيارة أحلامك في مخزوننا؟ Bounechada Auto تستورد لكم النموذج الذي تختارونه مباشرة، جديد، متوافق، يُسَلَّم إليكم.",
+      "cmd-flag-asia": "آسيا",
+      "cmd-flag-europe": "أوروبا",
+      "step1-title": "اختر نموذجك",
+      "step1-desc": "أرسل لنا العلامة والنموذج والإصدار والخيارات المطلوبة. كتالوج عالمي متاح.",
+      "step2-title": "عرض السعر والتأكيد",
+      "step2-desc": "نرسل لكم سعراً نهائياً شاملاً — الاستيراد، التخليص الجمركي، التوصيل إلى الشراقة.",
+      "step3-title": "توصيل مضمون",
+      "step3-desc": "تُستورد سيارتكم جديدة، تُفحص وتُسلَّم مباشرةً في معرضنا ضمن المهلة المتفق عليها.",
+      "benefit1": "يوم متوسط الانتظار",
+      "benefit2": "سيارة جديدة مضمونة",
+      "benefit3": "طراز متاح",
+      "cmd-cta-btn": "أرسل طلبك عبر واتساب",
+      "cmd-cta-note": "رد خلال 24 ساعة · عرض مجاني · بدون التزام",
+      "marques-label": "شركاؤنا",
+      "marques-title": "العلامات الرسمية",
+      "svc-label": "ما نقدمه",
+      "svc-title": "خدماتنا",
+      "svc-sub": "مرافقة كاملة من التخليص الجمركي حتى البطاقة الرمادية.",
+      "svc1-title": "التخليص الجمركي",
+      "svc1-desc": "نتكفّل بجميع الإجراءات الجمركية لسيارتكم المستوردة — بسرعة، بدون تعقيد، وفق الأنظمة المعمول بها.",
+      "svc2-title": "الاستيراد المباشر",
+      "svc2-desc": "سيارات مستوردة مباشرةً من المصنع — جديدة، مطابقة للمعايير الجزائرية، تُسلَّم في معرضنا.",
+      "svc3-title": "الترقيم الفوري",
+      "svc3-desc": "تُحرَّر البطاقة الرمادية باسم العميل في يوم الشراء. تغادر بسيارتك مستوفية كل الشروط القانونية.",
+      "svc-soon": "قريباً",
+      "svc4-title": "خدمة ما بعد البيع",
+      "svc4-desc": "مساعدة ومتابعة تقنية ودعم العملاء لجميع السيارات المشتراة من Bounechada Auto.",
+      "loc-label": "ابحث عنا",
+      "loc-title": "معرضنا",
+      "loc-addr-title": "العنوان",
+      "loc-addr-val": "الشراقة، الجزائر<br>Chéraga — Algérie",
+      "loc-hours-title": "أوقات العمل",
+      "loc-hours-val": "السبت – الخميس : 9:00 – 18:00<br>الجمعة : مغلق",
+      "loc-comm-title": "التجاري",
+      "loc-email-title": "البريد الإلكتروني",
+      "footer-tag": "معرض فاخر — الشراقة، الجزائر",
+      "footer-copy": "© 2026 Bounechada Auto. جميع الحقوق محفوظة.",
+      "wa-status": "● متصل",
+      "wa-p1": "مرحباً ! 👋",
+      "wa-p2": "كيف يمكننا مساعدتكم؟ فريقنا متاح للإجابة على جميع استفساراتكم حول سياراتنا.",
+      "wa-time": "الآن",
+      "wa-start": "ابدأ المحادثة"
+    }
+  };
+
+  function applyLang(lang) {
+    const t = translations[lang];
+    document.documentElement.lang = lang;
+    document.documentElement.classList.toggle('ar', lang === 'ar');
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+    const btn = document.getElementById('langBtn');
+    if (btn) btn.innerHTML = lang === 'ar' ? '<b>عر</b> | FR' : 'FR | <b>عر</b>';
+    localStorage.setItem('lang', lang);
+  }
+
+  function toggleLang() {
+    applyLang((localStorage.getItem('lang') || 'fr') === 'fr' ? 'ar' : 'fr');
+  }
+
+  applyLang(localStorage.getItem('lang') || 'fr');
+</script>
+</body>
+</html>

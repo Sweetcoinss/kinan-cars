@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kia KX1 2026 — Bounechada Auto</title>
+  <link rel="stylesheet" href="ar.css">
+  <link href="_fonts/fonts.css" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{--noir:#0A0A0A;--blanc:#FFFFFF;--rouge:#CC0000;--rouge-vif:#E60000;--or:#C9A84C;--gris-fonce:#111111;--muted:#888888;--font-d:'Bebas Neue',sans-serif;--font-c:'Barlow Condensed',sans-serif;--font-b:'Outfit',sans-serif;--ease:cubic-bezier(0.4,0,0.2,1);--dur:0.38s;}
+    html{scroll-behavior:smooth;cursor:none;}
+    body{font-family:var(--font-b);background:var(--blanc);color:var(--noir);cursor:none;overflow-x:hidden;}
+    #c{position:fixed;width:8px;height:8px;background:var(--rouge);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    #cr{position:fixed;width:34px;height:34px;border:1.5px solid var(--or);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),border-color .3s;}
+    #cr.hov{width:54px;height:54px;border-color:var(--rouge);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;background:rgba(10,10,10,.97);backdrop-filter:blur(18px);box-shadow:0 1px 0 rgba(201,168,76,.12);}
+    .nav-logo{font-family:var(--font-d);font-size:1.5rem;color:var(--blanc);text-decoration:none;letter-spacing:.1em;}
+    .nav-logo span{color:var(--rouge);}
+    .nav-back{font-family:var(--font-c);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color var(--dur);}
+    .nav-back:hover{color:var(--or);}
+    .nav-back svg{width:14px;height:14px;}
+    .breadcrumb{padding:100px 5% 0;display:flex;align-items:center;gap:.6rem;font-family:var(--font-c);font-size:.65rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+    .breadcrumb a{color:var(--muted);text-decoration:none;transition:color var(--dur);}
+    .breadcrumb a:hover{color:var(--rouge);}
+    .detail-hero{padding:1.5rem 5% 4rem;display:grid;grid-template-columns:1fr 380px;gap:3rem;align-items:start;}
+    @media(max-width:1024px){.detail-hero{grid-template-columns:1fr;}}
+    .gallery-main{position:sticky;top:90px;}
+    .gallery-main-img{width:100%;aspect-ratio:4/3;overflow:hidden;background:#111;position:relative;cursor:none;}
+    .gallery-main-img img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .35s var(--ease);}
+    .img-label{position:absolute;bottom:1rem;left:1rem;font-family:var(--font-c);font-size:.58rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(0,0,0,.5);padding:.25rem .6rem;backdrop-filter:blur(6px);}
+    .gallery-thumbs{display:grid;grid-template-columns:repeat(9,1fr);gap:.4rem;margin-top:.5rem;}
+    @media(max-width:600px){.gallery-thumbs{grid-template-columns:repeat(5,1fr);}}
+    .thumb{aspect-ratio:1;overflow:hidden;background:#111;opacity:.45;transition:opacity .25s;cursor:none;border:2px solid transparent;}
+    .thumb.active{opacity:1;border-color:var(--rouge);}
+    .thumb:hover{opacity:.8;}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    .lightbox{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.94);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;}
+    .lightbox.open{opacity:1;pointer-events:all;}
+    .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;display:block;}
+    .lightbox-close{position:absolute;top:1.5rem;right:2rem;font-family:var(--font-d);font-size:2rem;color:rgba(255,255,255,.5);cursor:none;transition:color .2s;}
+    .lightbox-close:hover{color:var(--blanc);}
+    .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--font-d);font-size:2.5rem;color:rgba(255,255,255,.35);cursor:none;transition:color .2s;user-select:none;}
+    .lightbox-prev{left:2rem;}.lightbox-next{right:2rem;}
+    .lightbox-prev:hover,.lightbox-next:hover{color:var(--or);}
+    .car-info{padding-top:.5rem;}
+    .car-brand-tag{font-family:var(--font-c);font-size:.62rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--rouge);display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem;}
+    .car-brand-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--rouge);}
+    .car-name{font-family:var(--font-d);font-size:clamp(3rem,5vw,4.5rem);line-height:1;letter-spacing:.04em;margin-bottom:.3rem;}
+    .car-year{font-family:var(--font-c);font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.8rem;}
+    .price-block{background:var(--noir);padding:1.5rem;margin-bottom:1.8rem;}
+    .price-label{font-family:var(--font-c);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+    .price-val{font-family:var(--font-d);font-size:2.8rem;color:var(--rouge);letter-spacing:.04em;line-height:1;}
+    .price-curr{font-family:var(--font-c);font-size:.65rem;color:rgba(255,255,255,.35);letter-spacing:.14em;text-transform:uppercase;margin-top:.3rem;}
+    .specs-title{font-family:var(--font-c);font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--noir);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid rgba(0,0,0,.08);}
+    .spec-row{display:flex;justify-content:space-between;align-items:flex-start;padding:.7rem 0;border-bottom:1px solid rgba(0,0,0,.06);gap:12px;}
+    .spec-key{font-family:var(--font-c);font-size:.72rem;font-weight:500;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;min-width:110px;flex-shrink:0;padding-top:2px;}
+    .spec-val{font-family:var(--font-c);font-size:.78rem;font-weight:700;color:var(--noir);text-align:right;}
+    .spec-val.red{color:var(--rouge);}
+    .spec-val.gold{color:var(--or);}
+    .specs-section{font-family:var(--font-c);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:1.2rem 0 .5rem;padding-top:.8rem;border-top:1px solid rgba(0,0,0,.05);}
+    .detail-cta{margin-top:1.8rem;display:flex;flex-direction:column;gap:.7rem;}
+    .btn-primary{font-family:var(--font-c);font-size:.77rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blanc);background:var(--rouge);padding:1rem 2rem;text-decoration:none;display:block;text-align:center;transition:background var(--dur);}
+    .btn-primary:hover{background:var(--rouge-vif);}
+    .btn-outline{font-family:var(--font-c);font-size:.77rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--noir);background:transparent;padding:1rem 2rem;text-align:center;border:1px solid rgba(0,0,0,.15);transition:border-color var(--dur),color var(--dur);text-decoration:none;display:block;}
+    .btn-outline:hover{border-color:var(--or);color:var(--or);}
+    .full-gallery{padding:5rem 5%;background:var(--gris-fonce);}
+    .fg-label{font-family:var(--font-c);font-size:.63rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--or);display:flex;align-items:center;gap:.9rem;margin-bottom:.9rem;}
+    .fg-label::before{content:'';display:inline-block;width:28px;height:1px;background:var(--or);}
+    .fg-title{font-family:var(--font-d);font-size:clamp(2rem,4vw,3rem);line-height:1;letter-spacing:.05em;color:var(--blanc);margin-bottom:2.5rem;}
+    .fg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;}
+    @media(max-width:768px){.fg-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:480px){.fg-grid{grid-template-columns:1fr;}}
+    .fg-item{overflow:hidden;aspect-ratio:4/3;background:#111;cursor:none;position:relative;}
+    .fg-item.wide{grid-column:span 2;aspect-ratio:16/9;}
+    @media(max-width:768px){.fg-item.wide{grid-column:span 1;aspect-ratio:4/3;}}
+    .fg-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease);}
+    .fg-item:hover img{transform:scale(1.04);}
+    .fg-caption{position:absolute;bottom:0;left:0;right:0;padding:.6rem .9rem;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%);font-family:var(--font-c);font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);opacity:0;transition:opacity .3s;}
+    .fg-item:hover .fg-caption{opacity:1;}
+    footer{background:var(--noir);padding:2.5rem 5%;}
+    .footer-inner{display:flex;flex-direction:column;align-items:center;gap:.7rem;text-align:center;}
+    .f-logo{font-family:var(--font-d);font-size:1.6rem;color:var(--blanc);letter-spacing:.12em;}
+    .f-logo span{color:var(--rouge);}
+    .f-tag{font-family:var(--font-c);font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+    .f-copy{font-family:var(--font-c);font-size:.58rem;letter-spacing:.1em;color:rgba(255,255,255,.2);margin-top:.3rem;}
+    .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:500;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(37,211,102,.4);text-decoration:none;cursor:none;animation:waPulse 2.4s ease-in-out infinite;}
+    .wa-float svg{width:26px;height:26px;fill:#fff;}
+    @keyframes waPulse{0%,100%{box-shadow:0 8px 32px rgba(37,211,102,.4);}50%{box-shadow:0 8px 48px rgba(37,211,102,.65);}}
+    .rv{opacity:0;transform:translateY(22px);transition:opacity .55s var(--ease),transform .55s var(--ease);}
+    .rv.vis{opacity:1;transform:none;}
+  </style>
+</head>
+<body>
+<div id="c"></div><div id="cr"></div>
+<nav>
+  <a href="index.html" class="nav-logo">BOUNECHADA <span>AUTO</span></a>
+  <a href="index.html#stock" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    <span data-i18n="nav-back">Retour au stock</span>
+  </a>
+  <button id="langBtn" onclick="toggleLang()" aria-label="Langue">FR | <b>عر</b></button>
+</nav>
+<div class="breadcrumb">
+  <a href="index.html" data-i18n="bc-home">Accueil</a>
+  <span style="color:var(--rouge)">›</span>
+  <a href="index.html#stock" data-i18n="bc-stock">Stock</a>
+  <span style="color:var(--rouge)">›</span>
+  <span style="color:var(--noir)">Kia KX1 2026</span>
+</div>
+
+<div class="detail-hero">
+  <div>
+    <div class="gallery-main rv">
+      <div class="gallery-main-img" id="mainImgWrap">
+        <img id="mainImg" src="voiture/Kia kx1 2026/IMG-20260501-WA0145.jpg" alt="Kia KX1 2026 — Vue extérieure">
+        <div class="img-label" id="mainLabel">Vue extérieure</div>
+      </div>
+      <div class="gallery-thumbs" id="thumbGrid"></div>
+    </div>
+  </div>
+
+  <div class="car-info rv" style="transition-delay:.1s">
+    <p class="car-brand-tag">KIA</p>
+    <h1 class="car-name">KX1</h1>
+    <p class="car-year">Millésime 2026 · 0 km · Neuve</p>
+
+    <div class="price-block">
+      <div class="price-label" data-i18n="price-label">Prix</div>
+      <div class="price-val">4 450 000 DA</div>
+      <div class="price-curr">Dinars Algériens · Dispo immédiate</div>
+    </div>
+
+    <div class="specs-title" data-i18n="spec-title">Fiche technique</div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-marque">Marque</span><span class="spec-val">Kia</span></div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-modele">Modèle</span><span class="spec-val">KX1</span></div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-annee">Année</span><span class="spec-val red">2026</span></div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-carrosserie">Carrosserie</span><span class="spec-val">SUV compact / citadine</span></div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-km">Kilométrage</span><span class="spec-val red">0 km — Neuf</span></div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-dispo">Disponibilité</span><span class="spec-val gold">Immédiate</span></div>
+
+    <div class="specs-section" data-i18n="sec-motorisation">Motorisation</div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-moteur">Moteur</span><span class="spec-val">1.5L essence</span></div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-puissance">Puissance</span><span class="spec-val red">110 ch</span></div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-boite">Boîte</span><span class="spec-val">Automatique CVT</span></div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-carburant">Carburant</span><span class="spec-val">Essence</span></div>
+
+    <div class="specs-section">Dimensions & équipements</div>
+    <div class="spec-row"><span class="spec-key" data-i18n="spec-places">Places</span><span class="spec-val">5</span></div>
+    <div class="spec-row"><span class="spec-key">Écran</span><span class="spec-val">Tactile 8 pouces</span></div>
+    <div class="spec-row"><span class="spec-key">Climatisation</span><span class="spec-val">Auto</span></div>
+    <div class="spec-row"><span class="spec-key">Jantes</span><span class="spec-val">15 pouces</span></div>
+    <div class="spec-row"><span class="spec-key">Toit ouvrant</span><span class="spec-val gold">Oui</span></div>
+    <div class="spec-row"><span class="spec-key">Caméra recul</span><span class="spec-val">Directionnelle</span></div>
+    <div class="spec-row"><span class="spec-key">Sièges</span><span class="spec-val gold">Cuir</span></div>
+
+    <div class="detail-cta">
+      <a href="https://wa.me/213770557221?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Kia%20KX1%202026%20(neuf%2C%204%20450%20000%20DA)." class="btn-primary" data-i18n="cta-wa">Nous contacter sur WhatsApp</a>
+      <a href="index.html#stock" class="btn-outline" data-i18n="cta-back">Voir d'autres véhicules</a>
+    </div>
+  </div>
+</div>
+
+<section class="full-gallery">
+  <p class="fg-label rv" data-i18n="gallery-label">Galerie photos</p>
+  <h2 class="fg-title rv" data-i18n="gallery-title">Toutes les photos</h2>
+  <div class="fg-grid">
+    <div class="fg-item wide rv" data-idx="0"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0145.jpg" alt="Vue extérieure"><div class="fg-caption">Vue extérieure</div></div>
+    <div class="fg-item rv" data-idx="1"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0146.jpg" alt="Vue avant"><div class="fg-caption">Vue avant</div></div>
+    <div class="fg-item rv" data-idx="2"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0147.jpg" alt="Vue 3/4 avant"><div class="fg-caption">Vue 3/4 avant</div></div>
+    <div class="fg-item rv" data-idx="3"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0149.jpg" alt="Profil latéral"><div class="fg-caption">Profil latéral</div></div>
+    <div class="fg-item rv" data-idx="4"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0150.jpg" alt="Vue arrière"><div class="fg-caption">Vue arrière</div></div>
+    <div class="fg-item wide rv" data-idx="5"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0152.jpg" alt="Vue 3/4 arrière"><div class="fg-caption">Vue 3/4 arrière</div></div>
+    <div class="fg-item rv" data-idx="6"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0153.jpg" alt="Intérieur"><div class="fg-caption">Intérieur</div></div>
+    <div class="fg-item rv" data-idx="7"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0154.jpg" alt="Tableau de bord"><div class="fg-caption">Tableau de bord</div></div>
+    <div class="fg-item rv" data-idx="8"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0155.jpg" alt="Écran multimédia"><div class="fg-caption">Écran multimédia</div></div>
+    <div class="fg-item rv" data-idx="9"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0156.jpg" alt="Console centrale"><div class="fg-caption">Console centrale</div></div>
+    <div class="fg-item wide rv" data-idx="10"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0158.jpg" alt="Sièges cuir"><div class="fg-caption">Sièges cuir</div></div>
+    <div class="fg-item rv" data-idx="11"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0160.jpg" alt="Toit ouvrant"><div class="fg-caption">Toit ouvrant</div></div>
+    <div class="fg-item rv" data-idx="12"><img src="voiture/Kia kx1 2026/IMG-20260501-WA0162.jpg" alt="Détail extérieur"><div class="fg-caption">Détail extérieur</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="f-logo">BOUNECHADA <span>AUTO</span></div>
+    <div class="f-tag" data-i18n="footer-tag">Showroom Premium — Chéraga, Alger</div>
+    <div class="f-copy" data-i18n="footer-copy">© 2026 Bounechada Auto. Tous droits réservés.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/213770557221" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lbClose">✕</div>
+  <div class="lightbox-prev" id="lbPrev">‹</div>
+  <img id="lbImg" src="" alt="">
+  <div class="lightbox-next" id="lbNext">›</div>
+</div>
+
+<script>
+  const dot=document.getElementById('c'),ring=document.getElementById('cr');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  (function tick(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
+  document.querySelectorAll('a,button,.thumb,.fg-item,.lightbox-prev,.lightbox-next,.lightbox-close').forEach(el=>{
+    el.addEventListener('mouseenter',()=>ring.classList.add('hov'));
+    el.addEventListener('mouseleave',()=>ring.classList.remove('hov'));
+  });
+
+  const photos=[
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0145.jpg',label:'Vue extérieure'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0146.jpg',label:'Vue avant'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0147.jpg',label:'Vue 3/4 avant'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0149.jpg',label:'Profil latéral'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0150.jpg',label:'Vue arrière'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0152.jpg',label:'Vue 3/4 arrière'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0153.jpg',label:'Intérieur'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0154.jpg',label:'Tableau de bord'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0155.jpg',label:'Écran multimédia'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0156.jpg',label:'Console centrale'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0158.jpg',label:'Sièges cuir'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0160.jpg',label:'Toit ouvrant'},
+    {src:'voiture/Kia kx1 2026/IMG-20260501-WA0162.jpg',label:'Détail extérieur'},
+  ];
+
+  const thumbGrid=document.getElementById('thumbGrid'),mainImg=document.getElementById('mainImg'),mainLabel=document.getElementById('mainLabel');
+  let activeIdx=0;
+  photos.forEach((p,i)=>{
+    const div=document.createElement('div');
+    div.className='thumb'+(i===activeIdx?' active':'');
+    div.innerHTML=`<img src="${p.src}" alt="${p.label}">`;
+    div.addEventListener('click',()=>switchMain(i));
+    thumbGrid.appendChild(div);
+  });
+  function switchMain(idx){activeIdx=idx;mainImg.style.opacity='0';setTimeout(()=>{mainImg.src=photos[idx].src;mainImg.alt=photos[idx].label;mainLabel.textContent=photos[idx].label;mainImg.style.opacity='1';},180);thumbGrid.querySelectorAll('.thumb').forEach((t,i)=>t.classList.toggle('active',i===idx));}
+  document.getElementById('mainImgWrap').addEventListener('click',()=>openLightbox(activeIdx));
+  document.querySelectorAll('.fg-item').forEach(el=>el.addEventListener('click',()=>openLightbox(parseInt(el.dataset.idx))));
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
+  let lbIdx=0;
+  function openLightbox(idx){lbIdx=idx;lbImg.src=photos[idx].src;lb.classList.add('open');}
+  function closeLightbox(){lb.classList.remove('open');lbImg.src='';}
+  function lbMove(dir){lbIdx=(lbIdx+dir+photos.length)%photos.length;lbImg.src=photos[lbIdx].src;}
+  document.getElementById('lbClose').addEventListener('click',closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click',()=>lbMove(-1));
+  document.getElementById('lbNext').addEventListener('click',()=>lbMove(1));
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')lbMove(-1);if(e.key==='ArrowRight')lbMove(1);});
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.08});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+<script src="ar.js"></script>
+</body>
+</html>
