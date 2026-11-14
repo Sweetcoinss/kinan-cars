@@ -1,1 +1,1 @@
-https://sweetcoinss.github.io/bounechada-auto/
+https://sweetcoinss.github.io/kinan-cars/
