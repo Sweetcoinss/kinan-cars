@@ -1,6 +1,6 @@
-# Bounechada Auto — نسخة محلية (Offline Mirror)
+# Kinan Cars — نسخة محلية (Offline Mirror)
 
-نسخة محلية كاملة من الموقع `https://www.bounechadaauto.com/` — جميع الصفحات والصور
+نسخة محلية كاملة من الموقع `https://www.kinancars-showroom (mirror)/` — جميع الصفحات والصور
 والخطوط والسيرفر جاهزة، بدون إنترنت (عدا خريطة Google وروابط التواصل).
 
 ---
@@ -16,7 +16,7 @@ http://localhost:8000/
 لإعادة تشغيله لاحقاً (إذا أُغلق):
 
 ```powershell
-cd C:\Users\RDP.runnervmm7ud1\bounechada-auto
+cd C:\Users\RDP.runnervmm7ud1\kinan-cars
 python serve.py 8000
 ```
 
@@ -50,7 +50,7 @@ python serve.py 8000
 
 ### الفيديوهات
 الفيديوهات الخمسة في الموقع الأصلي كانت تشير إلى إصدارات GitHub لمستودع خاص
-(`github.com/jeunenomade16-sudo/bounechada-auto/releases/...`) وهي **ترجع 404 حتى على
+(`github.com/jeunenomade16-sudo/kinan-cars/releases/...`) وهي **ترجع 404 حتى على
 الموقع الأصلي** (لاحظ خطأ `ERR_BLOCKED_BY_ORB` عند فتح الموقع الحي).
 
 لذلك وُلّدت بدائل محلية في `_media/` من صور الموقع نفسها (حركة Ken Burns بطيئة،
@@ -65,14 +65,14 @@ _media/video-1..3.mp4 ← فيديوهات دوّار الواجهة
 ### ما بقي خارجياً (عن قصد)
 - **خريطة Google** (iframe) — تتطلب اتصالاً بالإنترنت
 - **روابط التواصل**: WhatsApp, Facebook, TikTok, Ouedkniss
-- **بريد وهاتف**: `bounechadaauto@gmail.com`, `+213770557221`
+- **بريد وهاتف**: `kinancars@gmail.com`, `+213770557221`
 
 ---
 
 ## إعادة تحديث النسخة
 
 ```powershell
-cd C:\Users\RDP.runnervmm7ud1\bounechada-auto
+cd C:\Users\RDP.runnervmm7ud1\kinan-cars
 python _tools\mirror.py .          # إعادة تنزيل الموقع
 python _tools\postprocess.py       # الخطوط + الفيديوهات البديلة
 python _tools\fixfonts.py          # توجيه الخطوط للنسخة المحلية
