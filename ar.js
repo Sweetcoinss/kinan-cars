@@ -40,7 +40,7 @@
       'gallery-title':   'Toutes les photos',
       'cta-wa':          'Nous contacter sur WhatsApp',
       'cta-back':        "Voir d'autres véhicules",
-      'footer-tag':      'Showroom Premium — Chéraga, Alger',
+      'footer-tag':      'Showroom Premium — Batna - Centre-ville',
       'footer-copy':     '© 2026 Kinan Cars. Tous droits réservés.',
       'occasion-txt':    'Occasion',
       'neuf-txt':        'Neuf',
